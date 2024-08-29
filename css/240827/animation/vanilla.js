@@ -1,7 +1,7 @@
-var vanilainputfield = document.getElementById("vanila");
+// var vanilainputfield = document.getElementById("vanila");
 var btnvanila = document.getElementById("btnvanila");
 let menu = document.getElementById("Menu_Background");
-var updatevanila = document.getElementById("updatevanila");
+// var updatevanila = document.getElementById("updatevanila");
 var vanillaListArr = [];
 
 const getList = async (list) => {
@@ -13,7 +13,7 @@ const createListCard = (data) => {
   console.log(data);
 
   for (var i = 0; i < data.length; i++) {
-    let preindex = i;
+    // let preindex = i;
     let dataid = data[i].id;
     let dataimgsrc = data[i].fieldContent;
     // let writterId = data[i].playerId;
@@ -32,7 +32,6 @@ const createListCard = (data) => {
 
     menuCardImgBox.setAttribute("src", dataimgsrc);
   }
-  // console.log(data);
 };
 
 async function openList(arr0) {
@@ -55,15 +54,6 @@ function prefer0Time(listarr) {
   preExecute(() => {
     openList(listarr);
   });
-}
-
-function asyncSetFocus(callback) {
-  console.log(menu);
-  preExecute(() => {
-    openList();
-  });
-
-  callback();
 }
 
 // btnvanila.addEventListener("click", setListToShare, false);
@@ -92,22 +82,14 @@ function setListToShare() {
   tempReader.readAsDataURL(btnvanila.files[0]);
 }
 
-function updatevanillaitem(cutid, aidx) {
-  console.log(updatevanila.value);
-  let newvalueupdate = updatevanila.value;
-
-  console.log(cutid);
-  console.log(aidx);
-  vanillaListArr[aidx].fieldContent = newvalueupdate;
-
-  prefer0Time(vanillaListArr);
-}
-
-function checkpropagation(cutid) {
-  console.log(cutid);
-  let restArr = vanillaListArr.filter((item) => item.id !== cutid);
-
-  vanillaListArr = restArr;
-
-  prefer0Time(vanillaListArr);
-}
+// function updatevanillaitem(cutid, aidx) {
+//   console.log(updatevanila.value);
+//   let newvalueupdate = updatevanila.value;
+//   vanillaListArr[aidx].fieldContent = newvalueupdate;
+//   prefer0Time(vanillaListArr);
+// }
+// function checkpropagation(cutid) {
+//   let restArr = vanillaListArr.filter((item) => item.id !== cutid);
+//   vanillaListArr = restArr;
+//   prefer0Time(vanillaListArr);
+// }
