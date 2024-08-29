@@ -63,9 +63,6 @@ const createListCard = (data) => {
     //   },
     //   false
     // );
-
-
-
   }
   console.log(data);
 };
