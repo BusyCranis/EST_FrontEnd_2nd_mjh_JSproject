@@ -27,43 +27,45 @@ const createListCard = (data) => {
 
     const menuCardName = document.createElement("div");
     menuCardName.className = "Menu_Card_Name";
-    menuCardName.textContent = data[i].fieldContent + " of " + data[i].id;
+    // menuCardName.textContent = data[i].fieldContent + " of " + data[i].id;
 
-    const innerupdate = document.createElement("button");
-    innerupdate.textContent = "수정";
+    // const innerupdate = document.createElement("button");
+    // innerupdate.textContent = "수정";
 
-    const innerButton = document.createElement("button");
-    innerButton.textContent = "삭제";
+    // const innerButton = document.createElement("button");
+    // innerButton.textContent = "삭제";
 
     menuCardWrapper.appendChild(menuCardImgBox);
     menuCardWrapper.appendChild(menuCardName);
-    menuCardWrapper.appendChild(innerupdate);
-    menuCardWrapper.appendChild(innerButton);
+    // menuCardWrapper.appendChild(innerupdate);
+    // menuCardWrapper.appendChild(innerButton);
 
     menu.appendChild(menuCardWrapper);
 
-    innerupdate.addEventListener(
-      "click",
-      (event) => {
-        event.stopPropagation();
-        console.log(dataid);
-        console.log(preindex);
+    // innerupdate.addEventListener(
+    //   "click",
+    //   (event) => {
+    //     event.stopPropagation();
+    //     console.log(dataid);
+    //     console.log(preindex);
 
-        updatevanillaitem(dataid, preindex);
-      },
-      false
-    );
+    //     updatevanillaitem(dataid, preindex);
+    //   },
+    //   false
+    // );
 
-    innerButton.addEventListener(
-      "click",
-      (event) => {
-        event.stopPropagation();
+    // innerButton.addEventListener(
+    //   "click",
+    //   (event) => {
+    //     event.stopPropagation();
 
-        // console.log("삭제 버튼에 의한");
-        checkpropagation(dataid);
-      },
-      false
-    );
+    //     checkpropagation(dataid);
+    //   },
+    //   false
+    // );
+
+
+
   }
   console.log(data);
 };
@@ -105,7 +107,7 @@ function setListToShare() {
   let newitemtoshare = {
     id: Date.now(),
     type: "rtshare",
-    // fieldContent: ,
+    // fieldContent: "./images/jammanbo.png",
   };
 
   console.log(newitemtoshare);
