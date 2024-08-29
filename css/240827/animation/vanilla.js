@@ -105,7 +105,7 @@ function setListToShare() {
   let newitemtoshare = {
     id: Date.now(),
     type: "rtshare",
-    // fieldContent: vanilainputfield.value,
+    // fieldContent: ,
   };
 
   console.log(newitemtoshare);
