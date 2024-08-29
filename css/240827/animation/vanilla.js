@@ -26,48 +26,13 @@ const createListCard = (data) => {
     const menuCardImgBox = document.createElement("img");
     menuCardImgBox.className = "Menu_Card_ImgBox";
 
-    // const menuCardName = document.createElement("div");
-    // menuCardName.className = "Menu_Card_Name";
-    // menuCardName.textContent = data[i].fieldContent + " of " + data[i].id;
-
-    // const innerupdate = document.createElement("button");
-    // innerupdate.textContent = "수정";
-
-    // const innerButton = document.createElement("button");
-    // innerButton.textContent = "삭제";
-
     menuCardWrapper.appendChild(menuCardImgBox);
-    // menuCardWrapper.appendChild(menuCardName);
-    // menuCardWrapper.appendChild(innerupdate);
-    // menuCardWrapper.appendChild(innerButton);
 
     menu.appendChild(menuCardWrapper);
 
     menuCardImgBox.setAttribute("src", dataimgsrc);
-
-    // innerupdate.addEventListener(
-    //   "click",
-    //   (event) => {
-    //     event.stopPropagation();
-    //     console.log(dataid);
-    //     console.log(preindex);
-
-    //     updatevanillaitem(dataid, preindex);
-    //   },
-    //   false
-    // );
-
-    // innerButton.addEventListener(
-    //   "click",
-    //   (event) => {
-    //     event.stopPropagation();
-
-    //     checkpropagation(dataid);
-    //   },
-    //   false
-    // );
   }
-  console.log(data);
+  // console.log(data);
 };
 
 async function openList(arr0) {
