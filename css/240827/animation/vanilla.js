@@ -43,7 +43,7 @@ const createListCard = (data) => {
 
     menu.appendChild(menuCardWrapper);
 
-    menuCardImgBox.src = dataimgsrc;
+    menuCardImgBox.setAttribute("src", dataimgsrc);
 
     // innerupdate.addEventListener(
     //   "click",
@@ -101,19 +101,39 @@ function asyncSetFocus(callback) {
   callback();
 }
 
-btnvanila.addEventListener("click", setListToShare, false);
+// btnvanila.addEventListener("click", setListToShare, false);
+btnvanila.addEventListener("change", setListToShare, false);
 
 function setListToShare() {
-  let newitemtoshare = {
-    id: Date.now(),
-    type: "rtshare",
-    fieldContent: "./images/jammanbo.png",
+  let tempReader = new FileReader();
+  var newitemtoshare;
+
+  console.log(btnvanila);
+  console.log(btnvanila.files);
+
+  tempReader.onload = (ef) => {
+    console.log(ef.target.result);
+    newitemtoshare = {
+      id: Date.now(),
+      type: "rtshare",
+      fieldContent: ef.target.result,
+    };
+
+    console.log(newitemtoshare);
+    vanillaListArr.push(newitemtoshare);
+
+    prefer0Time(vanillaListArr);
   };
+  tempReader.readAsDataURL(btnvanila.files[0]);
 
-  console.log(newitemtoshare);
-  vanillaListArr.push(newitemtoshare);
-
-  prefer0Time(vanillaListArr);
+  // let newitemtoshare = {
+  //   id: Date.now(),
+  //   type: "rtshare",
+  //   fieldContent: "./images/jammanbo.png",
+  // };
+  // console.log(newitemtoshare);
+  // vanillaListArr.push(newitemtoshare);
+  // prefer0Time(vanillaListArr);
 }
 
 function updatevanillaitem(cutid, aidx) {
