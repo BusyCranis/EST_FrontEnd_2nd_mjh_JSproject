@@ -60,14 +60,14 @@ btnvanila.addEventListener("change", setListToShare, false);
 
 function setListToShare() {
   let tempReader = new FileReader();
-  var newitemtoshare;
+  // var newitemtoshare;
 
   // console.log(btnvanila);
   console.log(btnvanila.files);
 
   tempReader.onload = (ef) => {
     console.log(ef.target.result);
-    newitemtoshare = {
+    let newitemtoshare = {
       id: Date.now(),
       type: "rtshare",
       fieldContent: ef.target.result,
