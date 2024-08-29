@@ -6,7 +6,6 @@ var vanillaListArr = [];
 
 const getList = async (list) => {
   console.log(list);
-
   createListCard(list);
 };
 
@@ -60,55 +59,40 @@ const createListCard = (data) => {
       (event) => {
         event.stopPropagation();
 
-        console.log("삭제 버튼에 의한");
+        // console.log("삭제 버튼에 의한");
         checkpropagation(dataid);
       },
       false
     );
-
-    // console.log(menuCardWrapper.dataset);
-    // console.log(menuCardWrapper.dataset.id);
   }
   console.log(data);
 };
 
 async function openList(arr0) {
-  console.log("메뉴리스트에 의한 게시판 리스트 갱신");
   console.log(arr0);
-  // console.log(menu.innerHTML);
   console.log(menu);
 
   await getList(arr0);
 }
 
 function preExecute(callback) {
-  console.log("메뉴리스트에 의한 기존 찌꺼기 삭제");
   menu.innerHTML = "";
-  console.log(menu);
-  // console.log(menu.innerHTML);
 
+  console.log(menu);
   callback();
 }
 
 function prefer0Time(listarr) {
   console.log(listarr);
   console.log(menu);
-  // console.log(menu.innerHTML);
   preExecute(() => {
-    // console.log(menu.innerHTML);
     openList(listarr);
   });
 }
 
-// function makeOneWrapperMethod() {
-//   prefer0Time();
-// }
-
 function asyncSetFocus(callback) {
   console.log(menu);
-  // console.log(menu.innerHTML);
   preExecute(() => {
-    // console.log(menu.innerHTML);
     openList();
   });
 
@@ -132,7 +116,6 @@ function setListToShare() {
 
 function updatevanillaitem(cutid, aidx) {
   console.log(updatevanila.value);
-  // console.log("수정 버튼")
   let newvalueupdate = updatevanila.value;
 
   console.log(cutid);
@@ -150,13 +133,3 @@ function checkpropagation(cutid) {
 
   prefer0Time(vanillaListArr);
 }
-
-// axios.get("http://localhost:3000/getany").then(function (res) {
-//   console.log(res);
-// });
-
-// window.onload = function () {
-//   axios.get("http://localhost:3000/getany").then(function (res) {
-//     console.log(res);
-//   });
-// };
