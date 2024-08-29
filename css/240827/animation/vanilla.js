@@ -15,18 +15,19 @@ const createListCard = (data) => {
   for (var i = 0; i < data.length; i++) {
     let preindex = i;
     let dataid = data[i].id;
+    let dataimgsrc = data[i].fieldContent;
     // let writterId = data[i].playerId;
 
-    const menuCardWrapper = document.createElement("div");
+    const menuCardWrapper = document.createElement("li");
     menuCardWrapper.className = "menuCardWrapper0";
     menuCardWrapper.setAttribute("data-id", dataid);
     // menuCardWrapper.setAttribute("data-playerid", writterId);
 
-    const menuCardImgBox = document.createElement("div");
+    const menuCardImgBox = document.createElement("img");
     menuCardImgBox.className = "Menu_Card_ImgBox";
 
-    const menuCardName = document.createElement("div");
-    menuCardName.className = "Menu_Card_Name";
+    // const menuCardName = document.createElement("div");
+    // menuCardName.className = "Menu_Card_Name";
     // menuCardName.textContent = data[i].fieldContent + " of " + data[i].id;
 
     // const innerupdate = document.createElement("button");
@@ -36,11 +37,13 @@ const createListCard = (data) => {
     // innerButton.textContent = "삭제";
 
     menuCardWrapper.appendChild(menuCardImgBox);
-    menuCardWrapper.appendChild(menuCardName);
+    // menuCardWrapper.appendChild(menuCardName);
     // menuCardWrapper.appendChild(innerupdate);
     // menuCardWrapper.appendChild(innerButton);
 
     menu.appendChild(menuCardWrapper);
+
+    menuCardImgBox.src = dataimgsrc;
 
     // innerupdate.addEventListener(
     //   "click",
@@ -104,7 +107,7 @@ function setListToShare() {
   let newitemtoshare = {
     id: Date.now(),
     type: "rtshare",
-    // fieldContent: "./images/jammanbo.png",
+    fieldContent: "./images/jammanbo.png",
   };
 
   console.log(newitemtoshare);
