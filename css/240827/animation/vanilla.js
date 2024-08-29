@@ -17,9 +17,9 @@ const createListCard = (data) => {
     let dataid = data[i].id;
     let dataimgsrc = data[i].fieldContent;
     // let writterId = data[i].playerId;
-
     const menuCardWrapper = document.createElement("li");
     menuCardWrapper.className = "menuCardWrapper0";
+
     menuCardWrapper.setAttribute("data-id", dataid);
     // menuCardWrapper.setAttribute("data-playerid", writterId);
 
@@ -56,14 +56,13 @@ function prefer0Time(listarr) {
   });
 }
 
-// btnvanila.addEventListener("click", setListToShare, false);
 btnvanila.addEventListener("change", setListToShare, false);
 
 function setListToShare() {
   let tempReader = new FileReader();
   var newitemtoshare;
 
-  console.log(btnvanila);
+  // console.log(btnvanila);
   console.log(btnvanila.files);
 
   tempReader.onload = (ef) => {
