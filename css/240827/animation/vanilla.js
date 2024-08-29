@@ -35,8 +35,8 @@ const createListCard = (data) => {
 };
 
 async function openList(arr0) {
-  console.log(arr0);
-  console.log(menu);
+  // console.log(arr0);
+  // console.log(menu);
 
   await getList(arr0);
 }
@@ -49,7 +49,7 @@ function preExecute(callback) {
 }
 
 function prefer0Time(listarr) {
-  console.log(listarr);
+  // console.log(listarr);
   console.log(menu);
   preExecute(() => {
     openList(listarr);
