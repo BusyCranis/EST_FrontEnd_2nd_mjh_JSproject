@@ -125,15 +125,6 @@ function setListToShare() {
     prefer0Time(vanillaListArr);
   };
   tempReader.readAsDataURL(btnvanila.files[0]);
-
-  // let newitemtoshare = {
-  //   id: Date.now(),
-  //   type: "rtshare",
-  //   fieldContent: "./images/jammanbo.png",
-  // };
-  // console.log(newitemtoshare);
-  // vanillaListArr.push(newitemtoshare);
-  // prefer0Time(vanillaListArr);
 }
 
 function updatevanillaitem(cutid, aidx) {
