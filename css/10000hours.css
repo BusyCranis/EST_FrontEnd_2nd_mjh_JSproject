@@ -35,8 +35,6 @@
 }
 
 .defstyle {
-  /* background-color: purple; */
-
   font-family: OTEnjoystoriesBA;
 }
 
@@ -63,8 +61,6 @@ body {
 footer > p {
   color: var(--sub-color);
 }
-
-/*데스크탑*/
 
 body {
   display: flex;
@@ -105,7 +101,7 @@ header h1 img {
   font-size: 1.8rem;
   margin-top: 7.8rem;
   line-height: 1.8;
-  background-image: url(../../img/qutoes.png);
+  background-image: url(../../img/quotes.png);
   background-repeat: no-repeat;
   background-size: contain;
   background-position: center 2rem;
