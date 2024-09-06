@@ -138,10 +138,6 @@ input {
   border: none;
 }
 
-input::placeholder {
-  text-align: center;
-}
-
 button {
   border-radius: 5.6rem;
   border: none;
