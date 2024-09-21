@@ -12,7 +12,7 @@ const getList = async (list) => {
 const createListCard = (data) => {
   console.log(data);
 
-  for (var i = 0; i < data.length; i++) {
+  for (let i = 0; i < data.length; i++) {
     // let preindex = i;
     let dataid = data[i].id;
     let dataimgsrc = data[i].fieldContent;
