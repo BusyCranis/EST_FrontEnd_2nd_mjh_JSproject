@@ -1,7 +1,8 @@
 // var vanilainputfield = document.getElementById("vanila");
-var btnvanila = document.getElementById("btnvanila");
-let menu = document.getElementById("Menu_Background");
+// var btnvanila = document.getElementById("btnvanila");
+// let menu = document.getElementById("Menu_Background");
 // var updatevanila = document.getElementById("updatevanila");
+var wrapproductlist = document.getElementById("wrapproductlist");
 var vanillaListArr = [];
 
 fetch("https://estapi.openmarket.weniv.co.kr/products/", {
@@ -18,9 +19,6 @@ fetch("https://estapi.openmarket.weniv.co.kr/products/", {
   .then((json) => console.log(json))
   .catch((error) => console.error(error));
 
-
-
-
 const getList = async (list) => {
   console.log(list);
   createListCard(list);
@@ -33,11 +31,11 @@ const createListCard = (data) => {
     // let preindex = i;
     let dataid = data[i].id;
     let dataimgsrc = data[i].fieldContent;
- 
+
     const menuCardWrapper = document.createElement("li");
     menuCardWrapper.className = "menuCardWrapper0";
     menuCardWrapper.setAttribute("data-id", dataid);
-   
+
     const menuCardImgBox = document.createElement("img");
     menuCardImgBox.className = "Menu_Card_ImgBox";
 
@@ -67,7 +65,7 @@ function prefer0Time(listarr) {
   });
 }
 
-btnvanila.addEventListener("change", setListToShare, false);
+// btnvanila.addEventListener("change", setListToShare, false);
 
 function setListToShare() {
   let tempReader = new FileReader();
