@@ -6,8 +6,6 @@
     <title>Document</title>
     <style>
       :root {
-        /* 원의 둘레 = 340px * 7 */
-        /* 지름 = 원주 / 파이 / 2 */
         --translateZ: calc((340px * 7) / 3.14 / 2);
       }
 
@@ -23,10 +21,10 @@
         }
       }
 
-      div {
+      /* div {
         height: 100vh;
         perspective: 800px;
-      }
+      } */
 
       .list-item {
         position: relative;
@@ -53,34 +51,6 @@
         height: 100%;
         object-fit: contain;
       }
-
-      /* li:nth-child(1) {
-        transform: rotateY(0) translateZ(var(--translateZ));
-      }
-
-      li:nth-child(2) {
-        transform: rotateY(calc(360deg / 7)) translateZ(var(--translateZ));
-      }
-
-      li:nth-child(3) {
-        transform: rotateY(calc((360deg / 7) * 2)) translateZ(var(--translateZ));
-      }
-
-      li:nth-child(4) {
-        transform: rotateY(calc((360deg / 7) * 3)) translateZ(var(--translateZ));
-      }
-
-      li:nth-child(5) {
-        transform: rotateY(calc((360deg / 7) * 4)) translateZ(var(--translateZ));
-      }
-
-      li:nth-child(6) {
-        transform: rotateY(calc((360deg / 7) * 5)) translateZ(var(--translateZ));
-      }
-
-      li:nth-child(7) {
-        transform: rotateY(calc((360deg / 7) * 6)) translateZ(var(--translateZ));
-      } */
     </style>
   </head>
   <body>

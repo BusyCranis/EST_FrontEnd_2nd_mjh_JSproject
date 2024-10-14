@@ -36,15 +36,23 @@ const createListCard = (data) => {
     // let preindex = i;
     let dataid = data[i].id;
     // let dataimgsrc = data[i].fieldContent;
-
-    const menuCardWrapper = document.createElement("div");
-    menuCardWrapper.className = "menuCardWrapper000";
-    menuCardWrapper.textContent = data[i].name;
-
     const menuCardImgBox = document.createElement("img");
     menuCardImgBox.className = "Menu_Card_ImgBox";
 
+    const menuCardWrapper = document.createElement("div");
+    const menuProductName = document.createElement("div");
+    menuProductName.textContent = data[i].name;
+
+    const menuSellerName = document.createElement("div");
+    menuSellerName.textContent = data[i].seller.name;
+
+    const menuProductPrice = document.createElement("div");
+    menuProductPrice.textContent = data[i].price + "원";
+
     menuCardWrapper.appendChild(menuCardImgBox);
+    menuCardWrapper.appendChild(menuSellerName);
+    menuCardWrapper.appendChild(menuProductName);
+    menuCardWrapper.appendChild(menuProductPrice);
 
     wrapproductlist.appendChild(menuCardWrapper);
 
