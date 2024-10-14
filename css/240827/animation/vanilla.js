@@ -16,7 +16,12 @@ fetch("https://estapi.openmarket.weniv.co.kr/products/", {
   // }),
 })
   .then((response) => response.json())
-  .then((json) => console.log(json))
+  .then((json) => {
+    console.log(json);
+    vanillaListArr = json.results;
+
+    prefer0Time(vanillaListArr);
+  })
   .catch((error) => console.error(error));
 
 const getList = async (list) => {
@@ -30,20 +35,20 @@ const createListCard = (data) => {
   for (let i = 0; i < data.length; i++) {
     // let preindex = i;
     let dataid = data[i].id;
-    let dataimgsrc = data[i].fieldContent;
+    // let dataimgsrc = data[i].fieldContent;
 
-    const menuCardWrapper = document.createElement("li");
-    menuCardWrapper.className = "menuCardWrapper0";
-    menuCardWrapper.setAttribute("data-id", dataid);
+    const menuCardWrapper = document.createElement("div");
+    menuCardWrapper.className = "menuCardWrapper000";
+    menuCardWrapper.textContent = data[i].name;
 
     const menuCardImgBox = document.createElement("img");
     menuCardImgBox.className = "Menu_Card_ImgBox";
 
     menuCardWrapper.appendChild(menuCardImgBox);
 
-    menu.appendChild(menuCardWrapper);
+    wrapproductlist.appendChild(menuCardWrapper);
 
-    menuCardImgBox.setAttribute("src", dataimgsrc);
+    // menuCardImgBox.setAttribute("src", dataimgsrc);
   }
 };
 
@@ -52,14 +57,14 @@ async function openList(arr0) {
 }
 
 function preExecute(callback) {
-  menu.innerHTML = "";
+  wrapproductlist.innerHTML = "";
 
-  console.log(menu);
+  console.log(wrapproductlist);
   callback();
 }
 
 function prefer0Time(listarr) {
-  console.log(menu);
+  console.log(wrapproductlist);
   preExecute(() => {
     openList(listarr);
   });
@@ -68,24 +73,20 @@ function prefer0Time(listarr) {
 // btnvanila.addEventListener("change", setListToShare, false);
 
 function setListToShare() {
-  let tempReader = new FileReader();
-  // console.log(btnvanila);
-  console.log(btnvanila.files);
-
-  tempReader.onload = (ef) => {
-    console.log(ef.target.result);
-    let newitemtoshare = {
-      id: Date.now(),
-      type: "rtshare",
-      fieldContent: ef.target.result,
-    };
-
-    console.log(newitemtoshare);
-    vanillaListArr.push(newitemtoshare);
-
-    prefer0Time(vanillaListArr);
-  };
-  tempReader.readAsDataURL(btnvanila.files[0]);
+  // let tempReader = new FileReader();
+  // console.log(btnvanila.files);
+  // tempReader.onload = (ef) => {
+  //   console.log(ef.target.result);
+  //   let newitemtoshare = {
+  //     id: Date.now(),
+  //     type: "rtshare",
+  //     fieldContent: ef.target.result,
+  //   };
+  //   console.log(newitemtoshare);
+  //   vanillaListArr.push(newitemtoshare);
+  //   prefer0Time(vanillaListArr);
+  // };
+  // tempReader.readAsDataURL(btnvanila.files[0]);
 }
 
 // function updatevanillaitem(cutid, aidx) {
