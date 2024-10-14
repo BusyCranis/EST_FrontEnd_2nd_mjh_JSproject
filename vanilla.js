@@ -56,7 +56,7 @@ const createListCard = (data) => {
 
     wrapproductlist.appendChild(menuCardWrapper);
 
-    // menuCardImgBox.setAttribute("src", dataimgsrc);
+    menuCardImgBox.setAttribute("src", data[i].image);
   }
 };
 
