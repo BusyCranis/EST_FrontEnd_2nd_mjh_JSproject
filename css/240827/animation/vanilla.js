@@ -4,6 +4,23 @@ let menu = document.getElementById("Menu_Background");
 // var updatevanila = document.getElementById("updatevanila");
 var vanillaListArr = [];
 
+fetch("https://estapi.openmarket.weniv.co.kr/products/", {
+  method: "GET",
+  headers: {
+    "Content-Type": "application/json",
+  },
+  // body: JSON.stringify({
+  //     username: 'test1',
+  //     password: 'test1234',
+  // }),
+})
+  .then((response) => response.json())
+  .then((json) => console.log(json))
+  .catch((error) => console.error(error));
+
+
+
+
 const getList = async (list) => {
   console.log(list);
   createListCard(list);
@@ -16,13 +33,11 @@ const createListCard = (data) => {
     // let preindex = i;
     let dataid = data[i].id;
     let dataimgsrc = data[i].fieldContent;
-    // let writterId = data[i].playerId;
+ 
     const menuCardWrapper = document.createElement("li");
     menuCardWrapper.className = "menuCardWrapper0";
-
     menuCardWrapper.setAttribute("data-id", dataid);
-    // menuCardWrapper.setAttribute("data-playerid", writterId);
-
+   
     const menuCardImgBox = document.createElement("img");
     menuCardImgBox.className = "Menu_Card_ImgBox";
 
@@ -35,9 +50,6 @@ const createListCard = (data) => {
 };
 
 async function openList(arr0) {
-  // console.log(arr0);
-  // console.log(menu);
-
   await getList(arr0);
 }
 
@@ -49,7 +61,6 @@ function preExecute(callback) {
 }
 
 function prefer0Time(listarr) {
-  // console.log(listarr);
   console.log(menu);
   preExecute(() => {
     openList(listarr);
@@ -60,8 +71,6 @@ btnvanila.addEventListener("change", setListToShare, false);
 
 function setListToShare() {
   let tempReader = new FileReader();
-  // var newitemtoshare;
-
   // console.log(btnvanila);
   console.log(btnvanila.files);
 
