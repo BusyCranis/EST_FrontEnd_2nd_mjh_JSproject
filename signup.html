@@ -12,15 +12,15 @@
         <div>판매회원가입</div>
       </div>
       아이디
-      <input />
+      <input id="checkAccountDup" type="text" />
       <button onclick="accountNameDup()">중복확인</button>
       <br />
       비밀번호
-      <input /><br />
+      <input type="text" /><br />
       비밀번호 재확인
-      <input /><br />
+      <input type="text" /><br />
       이름
-      <input /><br />
+      <input type="text" /><br />
       휴대폰 번호
       <select></select>
       <input /><input /><br />
@@ -31,9 +31,27 @@
     </div>
 
     <script>
+      let checkAccountDup = document.getElementById("checkAccountDup");
+
       function accountNameDup() {
-        console.log("check dup");
-        
+        console.log(checkAccountDup.value);
+        fetch(
+          "https://estapi.openmarket.weniv.co.kr/accounts/validate-username/",
+          {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+              username: checkAccountDup.value,
+            }),
+          }
+        )
+          .then((response) => response.json())
+          .then((json) => {
+            console.log(json);
+          })
+          .catch((error) => console.error(error));
       }
     </script>
   </body>
