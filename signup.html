@@ -22,16 +22,19 @@
       이름
       <input type="text" /><br />
       휴대폰 번호
-      <select></select>
+      <select id="phoneFirst">
+        <option value="010">010</option>
+      </select>
       <input /><input /><br />
       <input type="checkbox" />
       호두샵의 이용약관 및 개인정보처리방침에 대한 내용을 확인하였고 동의합니다.
       <br />
-      <button>가입하기</button>
+      <button onclick="requestSignup()">가입하기</button>
     </div>
 
     <script>
       let checkAccountDup = document.getElementById("checkAccountDup");
+      let phoneFirst = document.getElementById("phoneFirst");
 
       function accountNameDup() {
         console.log(checkAccountDup.value);
@@ -52,6 +55,12 @@
             console.log(json);
           })
           .catch((error) => console.error(error));
+      }
+
+      function requestSignup() {
+        console.log(phoneFirst);
+        console.log(phoneFirst.value);
+        console.log(typeof phoneFirst.value);
       }
     </script>
   </body>
