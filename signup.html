@@ -12,7 +12,11 @@
         <div>판매회원가입</div>
       </div>
       아이디
-      <input id="checkAccountDup" type="text" />
+      <input
+        id="checkAccountDup"
+        type="text"
+        onchange="changeCheckedDupByNewInput()"
+      />
       <button onclick="accountNameDup()">중복확인</button>
       <br />
       비밀번호
@@ -37,6 +41,7 @@
     <script>
       let checkAccountDup = document.getElementById("checkAccountDup");
       let phoneFirst = document.getElementById("phoneFirst");
+      var hasCheckedDuplicate = false;
 
       function accountNameDup() {
         console.log(checkAccountDup.value);
@@ -55,8 +60,20 @@
           .then((response) => response.json())
           .then((json) => {
             console.log(json);
+            if (json.message) {
+              hasCheckedDuplicate = true;
+            } else if (json.error) {
+              hasCheckedDuplicate = false;
+            }
           })
           .catch((error) => console.error(error));
+      }
+
+      function changeCheckedDupByNewInput() {
+        console.log(hasCheckedDuplicate);
+        if (hasCheckedDuplicate === true) {
+          hasCheckedDuplicate = false;
+        }
       }
 
       function requestSignup() {
