@@ -19,6 +19,17 @@
       />
       <button onclick="accountNameDup()">중복확인</button>
       <br />
+      <div id="accountNameBase">필수 정보입니다.</div>
+      <div id="accountNameExist" style="display: none">
+        이미 사용중인 아이디입니다.
+      </div>
+      <div id="accountNameInvalid" style="display: none">
+        20자 이내의 영문 소문자, 대문자, 숫자만 사용 가능합니다.
+      </div>
+      <div id="accountNameSuccess" style="display: none">
+        멋진 아이디네요 :/
+      </div>
+      <!-- <br /> -->
       비밀번호
       <input id="pwinput" type="text" /><br />
       비밀번호 재확인
@@ -42,6 +53,10 @@
       let checkAccountDup = document.getElementById("checkAccountDup");
       let phoneFirst = document.getElementById("phoneFirst");
       var hasCheckedDuplicate = false;
+      let accountNameBase = document.getElementById("accountNameBase");
+      let accountNameExist = document.getElementById("accountNameExist");
+      let accountNameInvalid = document.getElementById("accountNameInvalid");
+      let accountNameSuccess = document.getElementById("accountNameSuccess");
 
       function accountNameDup() {
         console.log(checkAccountDup.value);
@@ -73,6 +88,11 @@
         console.log(hasCheckedDuplicate);
         if (hasCheckedDuplicate === true) {
           hasCheckedDuplicate = false;
+        }
+        if (checkAccountDup.value && checkAccountDup.value != "") {
+          accountNameBase.style.display = "none";
+        } else {
+          accountNameBase.style.display = "";
         }
       }
 
