@@ -17,7 +17,7 @@
         type="text"
         onchange="changeCheckedDupByNewInput()"
       />
-      <button onclick="accountNameDup()">중복확인</button>
+      <button onclick="checkAccountNameDup()">중복확인</button>
       <br />
       <div id="accountNameBase">필수 정보입니다.</div>
       <!-- <div id="accountNameExist" style="display: none">
@@ -54,32 +54,36 @@
       var hasCheckedDuplicate = false;
       let accountNameBase = document.getElementById("accountNameBase");
 
-      function accountNameDup() {
+      function checkAccountNameDup() {
         console.log(checkAccountDup.value);
-        fetch(
-          "https://estapi.openmarket.weniv.co.kr/accounts/validate-username/",
-          {
-            method: "POST",
-            headers: {
-              "Content-Type": "application/json",
-            },
-            body: JSON.stringify({
-              username: checkAccountDup.value,
-            }),
+        if (checkAccountDup.value && checkAccountDup.value !== "") {
+          if (checkAccountDup.value.length < 20) {
+            fetch(
+              "https://estapi.openmarket.weniv.co.kr/accounts/validate-username/",
+              {
+                method: "POST",
+                headers: {
+                  "Content-Type": "application/json",
+                },
+                body: JSON.stringify({
+                  username: checkAccountDup.value,
+                }),
+              }
+            )
+              .then((response) => response.json())
+              .then((json) => {
+                console.log(json);
+                if (json.message) {
+                  hasCheckedDuplicate = true;
+                  accountNameBase.textContent = "멋진 아이디네요 :)";
+                } else if (json.error) {
+                  hasCheckedDuplicate = false;
+                  accountNameBase.textContent = "이미 사용중인 아이디입니다.";
+                }
+              })
+              .catch((error) => console.error(error));
           }
-        )
-          .then((response) => response.json())
-          .then((json) => {
-            console.log(json);
-            if (json.message) {
-              hasCheckedDuplicate = true;
-              accountNameBase.textContent = "멋진 아이디네요 :)";
-            } else if (json.error) {
-              hasCheckedDuplicate = false;
-              accountNameBase.textContent = "이미 사용중인 아이디입니다.";
-            }
-          })
-          .catch((error) => console.error(error));
+        }
       }
 
       function changeCheckedDupByNewInput() {
