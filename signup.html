@@ -76,14 +76,10 @@
             console.log(json);
             if (json.message) {
               hasCheckedDuplicate = true;
-              accountNameBase.style.display = "none";
-              // accountNameExist.style.display = "none";
-              // accountNameInvalid.style.display = "none";
-              // accountNameSuccess.style.display = "";
+              accountNameBase.textContent = "멋진 아이디네요 :)";
             } else if (json.error) {
               hasCheckedDuplicate = false;
-              // accountNameSuccess.style.display = "none";
-              // accountNameExist.style.display = "";
+              accountNameBase.textContent = "이미 사용중인 아이디입니다.";
             }
           })
           .catch((error) => console.error(error));
@@ -93,15 +89,11 @@
         console.log(hasCheckedDuplicate);
         if (hasCheckedDuplicate === true) {
           hasCheckedDuplicate = false;
-          // accountNameSuccess.style.display = "none";
         }
         if (checkAccountDup.value && checkAccountDup.value !== "") {
-          // accountNameBase.style.display = "none";
+          accountNameBase.textContent = "";
         } else {
-          // accountNameExist.style.display = "none";
-          // accountNameSuccess.style.display = "none";
-          // accountNameInvalid.style.display = "none";
-          accountNameBase.style.display = "";
+          accountNameBase.textContent = "필수 정보입니다.";
         }
       }
 
