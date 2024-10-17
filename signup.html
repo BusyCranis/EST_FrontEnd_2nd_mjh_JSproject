@@ -20,7 +20,7 @@
       <button onclick="accountNameDup()">중복확인</button>
       <br />
       <div id="accountNameBase">필수 정보입니다.</div>
-      <div id="accountNameExist" style="display: none">
+      <!-- <div id="accountNameExist" style="display: none">
         이미 사용중인 아이디입니다.
       </div>
       <div id="accountNameInvalid" style="display: none">
@@ -28,8 +28,7 @@
       </div>
       <div id="accountNameSuccess" style="display: none">
         멋진 아이디네요 :/
-      </div>
-      <!-- <br /> -->
+      </div> -->
       비밀번호
       <input id="pwinput" type="text" /><br />
       비밀번호 재확인
@@ -54,9 +53,9 @@
       let phoneFirst = document.getElementById("phoneFirst");
       var hasCheckedDuplicate = false;
       let accountNameBase = document.getElementById("accountNameBase");
-      let accountNameExist = document.getElementById("accountNameExist");
-      let accountNameInvalid = document.getElementById("accountNameInvalid");
-      let accountNameSuccess = document.getElementById("accountNameSuccess");
+      // let accountNameExist = document.getElementById("accountNameExist");
+      // let accountNameInvalid = document.getElementById("accountNameInvalid");
+      // let accountNameSuccess = document.getElementById("accountNameSuccess");
 
       function accountNameDup() {
         console.log(checkAccountDup.value);
@@ -78,13 +77,13 @@
             if (json.message) {
               hasCheckedDuplicate = true;
               accountNameBase.style.display = "none";
-              accountNameExist.style.display = "none";
-              accountNameInvalid.style.display = "none";
-              accountNameSuccess.style.display = "";
+              // accountNameExist.style.display = "none";
+              // accountNameInvalid.style.display = "none";
+              // accountNameSuccess.style.display = "";
             } else if (json.error) {
               hasCheckedDuplicate = false;
-              accountNameSuccess.style.display = "none";
-              accountNameExist.style.display = "";
+              // accountNameSuccess.style.display = "none";
+              // accountNameExist.style.display = "";
             }
           })
           .catch((error) => console.error(error));
@@ -94,14 +93,14 @@
         console.log(hasCheckedDuplicate);
         if (hasCheckedDuplicate === true) {
           hasCheckedDuplicate = false;
-          accountNameSuccess.style.display = "none";
+          // accountNameSuccess.style.display = "none";
         }
         if (checkAccountDup.value && checkAccountDup.value !== "") {
-          accountNameBase.style.display = "none";
+          // accountNameBase.style.display = "none";
         } else {
-          accountNameExist.style.display = "none";
-          accountNameSuccess.style.display = "none";
-          accountNameInvalid.style.display = "none";
+          // accountNameExist.style.display = "none";
+          // accountNameSuccess.style.display = "none";
+          // accountNameInvalid.style.display = "none";
           accountNameBase.style.display = "";
         }
       }
