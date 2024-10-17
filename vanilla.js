@@ -10,10 +10,6 @@ fetch("https://estapi.openmarket.weniv.co.kr/products/", {
   headers: {
     "Content-Type": "application/json",
   },
-  // body: JSON.stringify({
-  //     username: 'test1',
-  //     password: 'test1234',
-  // }),
 })
   .then((response) => response.json())
   .then((json) => {
