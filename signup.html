@@ -53,9 +53,6 @@
       let phoneFirst = document.getElementById("phoneFirst");
       var hasCheckedDuplicate = false;
       let accountNameBase = document.getElementById("accountNameBase");
-      // let accountNameExist = document.getElementById("accountNameExist");
-      // let accountNameInvalid = document.getElementById("accountNameInvalid");
-      // let accountNameSuccess = document.getElementById("accountNameSuccess");
 
       function accountNameDup() {
         console.log(checkAccountDup.value);
@@ -86,15 +83,28 @@
       }
 
       function changeCheckedDupByNewInput() {
-        console.log(hasCheckedDuplicate);
+        console.log(checkAccountDup.value.length);
         if (hasCheckedDuplicate === true) {
           hasCheckedDuplicate = false;
         }
-        if (checkAccountDup.value && checkAccountDup.value !== "") {
+        if (
+          checkAccountDup.value &&
+          checkAccountDup.value !== "" &&
+          checkAccountDup.value.length < 20
+        ) {
           accountNameBase.textContent = "";
+          // if(checkAccountDup.value.length < 20) {
+          //   accountNameBase.textContent = "";
+          // }
+        } else if (checkAccountDup.value.length >= 20) {
+          accountNameBase.textContent =
+            "20자 이내의 영문 소문자, 대문자, 숫자만 사용 가능합니다.";
         } else {
           accountNameBase.textContent = "필수 정보입니다.";
         }
+        // if(checkAccountDup.value.length >= 20) {
+        //   accountNameBase.textContent = "20자 이내의 영문 소문자, 대문자, 숫자만 사용 가능합니다.";
+        // }
       }
 
       function requestSignup() {
