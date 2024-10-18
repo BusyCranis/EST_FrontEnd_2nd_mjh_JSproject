@@ -66,18 +66,16 @@ const createListCard = (data) => {
         .then((response) => response.json())
         .then((json) => {
           console.log(json);
-          wrapproductlist.innerHTML = `<div>
-                                            <img  src="${json.image}"></img>
-                                            ${json.seller.name}
-                                            ${json.name}
-                                            ${json.price}원
-                                            ${json.shipping_method} / ${
-            json.shipping_fee
-          }
-                                            총 상품 금액  총 수량 ${
-                                              json.stock
-                                            }개    
-                                            ${json.price + json.shipping_fee}원
+          wrapproductlist.innerHTML = `<div   class="eachdetailpagecontents" >
+                                        <img  src="${json.image}"></img>
+                                        <div>
+                                          ${json.seller.name}
+                                          ${json.name}
+                                          ${json.price}원
+                                          ${json.shipping_method} / ${json.shipping_fee}
+                                          총 상품 금액  총 수량 ${json.stock}개    
+                                          ${json.price + json.shipping_fee}원
+                                        </div>
                                        </div>`;
         })
         .catch((error) => console.error(error));
