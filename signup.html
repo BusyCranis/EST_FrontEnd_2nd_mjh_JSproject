@@ -22,6 +22,7 @@
       <div id="accountNameBase"></div>
       비밀번호
       <input id="pwinput" type="text" onchange="validatePasswordOnInput()" />
+      <img id="pwValidShow" src="./assets/icon-check-off.svg" />
       <br />
       <div id="pwValidMessage"></div>
       비밀번호 재확인
@@ -48,6 +49,7 @@
       let accountNameBase = document.getElementById("accountNameBase");
       let pwinput = document.getElementById("pwinput");
       let pwValidMessage = document.getElementById("pwValidMessage");
+      let pwValidShow = document.getElementById("pwValidShow");
 
       function checkAccountNameDup() {
         console.log(checkAccountDup.value);
@@ -103,6 +105,13 @@
       function validatePasswordOnInput() {
         console.log(pwinput.value);
         if (pwinput.value.length < 8) {
+          // pwValidShow.setAttribute("src", "./assets/icon-check-off.svg");
+          pwValidShow.src = "./assets/icon-check-off.svg";
+          pwValidMessage.textContent =
+            "8자 이상 영문 소문자, 숫자를 사용하세요.";
+        } else if (pwinput.value.length >= 8) {
+          // pwValidShow.setAttribute("src", "./assets/icon-check-on.svg");
+          pwValidShow.src = "./assets/icon-check-on.svg";
           pwValidMessage.textContent = "";
         }
       }
