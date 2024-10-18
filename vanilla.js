@@ -55,6 +55,27 @@ const createListCard = (data) => {
     wrapproductlist.appendChild(menuCardWrapper);
 
     menuCardImgBox.setAttribute("src", data[i].image);
+
+    menuCardWrapper.addEventListener("click", (event) => {
+      // console.log(event);
+      event.stopPropagation();
+      console.log(dataid);
+
+      fetch("https://estapi.openmarket.weniv.co.kr/products/" + dataid + "/", {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+        },
+      })
+        .then((response) => response.json())
+        .then((json) => {
+          console.log(json);
+          // vanillaListArr = json.results;
+
+          // prefer0Time(vanillaListArr);
+        })
+        .catch((error) => console.error(error));
+    });
   }
 };
 
