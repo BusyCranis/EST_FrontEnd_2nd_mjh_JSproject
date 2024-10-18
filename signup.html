@@ -153,10 +153,9 @@
       }
 
       function requestSignup() {
-        // console.log(phoneFirst.value);
         console.log(typeof phoneFirst.value);
 
-        if(!hasCheckedDuplicate) {
+        if (!hasCheckedDuplicate) {
           return;
         }
 
@@ -172,7 +171,6 @@
         // if() {
         //   return;
         // }
-
 
         fetch("https://estapi.openmarket.weniv.co.kr/accounts/buyer/signup/", {
           method: "POST",
