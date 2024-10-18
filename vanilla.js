@@ -31,11 +31,13 @@ const createListCard = (data) => {
   for (let i = 0; i < data.length; i++) {
     // let preindex = i;
     let dataid = data[i].id;
-    // let dataimgsrc = data[i].fieldContent;
+
     const menuCardImgBox = document.createElement("img");
     menuCardImgBox.className = "Menu_Card_ImgBox";
 
     const menuCardWrapper = document.createElement("div");
+    menuCardWrapper.className = "menuCardWrapper";
+
     const menuProductName = document.createElement("div");
     menuProductName.textContent = data[i].name;
 
