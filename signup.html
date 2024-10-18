@@ -29,6 +29,7 @@
       <input id="pwReInput" type="text" onchange="validateRePWonInput()" />
       <img id="rePWvalidShow" src="./assets/icon-check-off.svg" />
       <br />
+      <div id="rePWvalidMessage"></div>
       이름
       <input id="username" type="text" /><br />
       휴대폰 번호
@@ -53,6 +54,7 @@
       let pwValidMessage = document.getElementById("pwValidMessage");
       let pwValidShow = document.getElementById("pwValidShow");
       let pwReInput = document.getElementById("pwReInput");
+      let rePWvalidMessage = document.getElementById("rePWvalidMessage");
       let rePWvalidShow = document.getElementById("rePWvalidShow");
 
       function checkAccountNameDup() {
@@ -127,7 +129,24 @@
 
       function validateRePWonInput() {
         console.log(pwReInput.value);
+        console.log(rePWvalidMessage);
         console.log(rePWvalidShow);
+        if (pwReInput.value == pwinput.value) {
+          if (
+            !pwinput.value ||
+            !pwReInput.value ||
+            pwinput.value === "" ||
+            pwReInput.value === ""
+          ) {
+            rePWvalidShow.src = "./assets/icon-check-off.svg";
+          } else {
+            rePWvalidShow.src = "./assets/icon-check-on.svg";
+          }
+          rePWvalidMessage.textContent = "";
+        } else {
+          rePWvalidShow.src = "./assets/icon-check-off.svg";
+          rePWvalidMessage.textContent = "비밀번호가 일치하지 않습니다.";
+        }
       }
 
       function requestSignup() {
