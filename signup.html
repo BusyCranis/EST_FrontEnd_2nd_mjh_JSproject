@@ -26,7 +26,9 @@
       <br />
       <div id="pwValidMessage"></div>
       비밀번호 재확인
-      <input id="checkpwinput" type="text" /><br />
+      <input id="pwReInput" type="text" onchange="validateRePWonInput()" />
+      <img id="rePWvalidShow" src="./assets/icon-check-off.svg" />
+      <br />
       이름
       <input id="username" type="text" /><br />
       휴대폰 번호
@@ -50,6 +52,8 @@
       let pwinput = document.getElementById("pwinput");
       let pwValidMessage = document.getElementById("pwValidMessage");
       let pwValidShow = document.getElementById("pwValidShow");
+      let pwReInput = document.getElementById("pwReInput");
+      let rePWvalidShow = document.getElementById("rePWvalidShow");
 
       function checkAccountNameDup() {
         console.log(checkAccountDup.value);
@@ -119,6 +123,11 @@
           pwValidShow.src = "./assets/icon-check-off.svg";
           pwValidMessage.textContent = "필수 정보입니다.";
         }
+      }
+
+      function validateRePWonInput() {
+        console.log(pwReInput.value);
+        console.log(rePWvalidShow);
       }
 
       function requestSignup() {
