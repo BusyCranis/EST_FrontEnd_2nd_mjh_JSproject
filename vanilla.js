@@ -1,7 +1,3 @@
-// var vanilainputfield = document.getElementById("vanila");
-// var btnvanila = document.getElementById("btnvanila");
-// let menu = document.getElementById("Menu_Background");
-// var updatevanila = document.getElementById("updatevanila");
 var wrapproductlist = document.getElementById("wrapproductlist");
 var vanillaListArr = [];
 
@@ -101,8 +97,6 @@ function prefer0Time(listarr) {
     openList(listarr);
   });
 }
-
-// btnvanila.addEventListener("change", setListToShare, false);
 
 function setListToShare() {
   // let tempReader = new FileReader();
