@@ -1,6 +1,13 @@
 var wrapproductlist = document.getElementById("wrapproductlist");
 var vanillaListArr = [];
 
+
+
+function increaseAmountToBuy() {
+  console.log('event on');
+}
+
+
 fetch("https://estapi.openmarket.weniv.co.kr/products/", {
   method: "GET",
   headers: {
@@ -73,6 +80,7 @@ const createListCard = (data) => {
                                           ${json.name}
                                           ${json.price}원
                                           ${json.shipping_method} / ${json.shipping_fee}
+                                          <button>-</button> <button   onclick="increaseAmountToBuy()">+</button>
                                           총 상품 금액  총 수량 ${json.stock}개    
                                           ${json.price + json.shipping_fee}원
                                           <button>바로 구매</button>
