@@ -10,11 +10,10 @@ function increaseAmountToBuy(eachName) {
   console.log(mimicMiniStore[eachName]);
   console.log(wrapproductlist.innerHTML);
   mimicMiniStore[eachName] = mimicMiniStore[eachName] + 1;
-  // wrapproductlist.innerHTML = wrapproductlist.innerHTML;
 }
 
 
-function setEachItemDetailPage(eachres) {
+function setEachItemDetailPage(eachres, eachname) {
   wrapproductlist.innerHTML = `<div   class="eachdetailpagecontents" >
                                 <img  src="${eachres.image}"></img>
                                 <div>
@@ -23,8 +22,8 @@ function setEachItemDetailPage(eachres) {
                                   ${eachres.price}원
                                   ${eachres.shipping_method} / ${eachres.shipping_fee}
                                   <button>-</button>  
-                                  ${mimicMiniStore[nameOf]}  
-                                  <button   onclick="increaseAmountToBuy('${nameOf}')">+</button>
+                                  ${mimicMiniStore[eachname]}  
+                                  <button   onclick="increaseAmountToBuy('${eachname}')">+</button>
                                   총 상품 금액  총 수량 ${eachres.stock}개    
                                   ${eachres.price + eachres.shipping_fee}원
                                   <button>바로 구매</button>
@@ -105,22 +104,23 @@ const createListCard = (data) => {
         .then((response) => response.json())
         .then((json) => {
           console.log(json);
-          wrapproductlist.innerHTML = `<div   class="eachdetailpagecontents" >
-                                        <img  src="${json.image}"></img>
-                                        <div>
-                                          ${json.seller.name}
-                                          ${json.name}
-                                          ${json.price}원
-                                          ${json.shipping_method} / ${json.shipping_fee}
-                                          <button>-</button>  
-                                          ${mimicMiniStore[nameOf]}  
-                                          <button   onclick="increaseAmountToBuy('${nameOf}')">+</button>
-                                          총 상품 금액  총 수량 ${json.stock}개    
-                                          ${json.price + json.shipping_fee}원
-                                          <button>바로 구매</button>
-                                          <button>장바구니</button>
-                                        </div>
-                                       </div>`;
+          setEachItemDetailPage(json, nameOf);
+          // wrapproductlist.innerHTML = `<div   class="eachdetailpagecontents" >
+          //                               <img  src="${json.image}"></img>
+          //                               <div>
+          //                                 ${json.seller.name}
+          //                                 ${json.name}
+          //                                 ${json.price}원
+          //                                 ${json.shipping_method} / ${json.shipping_fee}
+          //                                 <button>-</button>  
+          //                                 ${mimicMiniStore[nameOf]}  
+          //                                 <button   onclick="increaseAmountToBuy('${nameOf}')">+</button>
+          //                                 총 상품 금액  총 수량 ${json.stock}개    
+          //                                 ${json.price + json.shipping_fee}원
+          //                                 <button>바로 구매</button>
+          //                                 <button>장바구니</button>
+          //                               </div>
+          //                              </div>`;
         })
         .catch((error) => console.error(error));
     });
