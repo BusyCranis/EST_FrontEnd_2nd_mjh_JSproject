@@ -4,11 +4,21 @@ var mimicMiniStore = {};
 
 
 
+function setEachItemDetailPage() {
+
+
+}
+
+
+
+
 function increaseAmountToBuy(eachName) {
   console.log(eachName);
   console.log(mimicMiniStore);
   console.log(mimicMiniStore[eachName]);
+  console.log(wrapproductlist.innerHTML);
   mimicMiniStore[eachName] = mimicMiniStore[eachName] + 1;
+  // wrapproductlist.innerHTML = wrapproductlist.innerHTML;
 }
 
 
