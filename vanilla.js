@@ -1,10 +1,14 @@
 var wrapproductlist = document.getElementById("wrapproductlist");
 var vanillaListArr = [];
+var mimicMiniStore = {};
 
 
 
-function increaseAmountToBuy() {
-  console.log('event on');
+function increaseAmountToBuy(eachName) {
+  console.log(eachName);
+  console.log(mimicMiniStore);
+  console.log(mimicMiniStore[eachName]);
+  mimicMiniStore[eachName] = mimicMiniStore[eachName] + 1;
 }
 
 
@@ -59,9 +63,13 @@ const createListCard = (data) => {
 
     menuCardImgBox.setAttribute("src", data[i].image);
 
+    let nameOf = "amountToBuy" + dataid;
+    let defaultAmountToBuy = 1;
+
     menuCardWrapper.addEventListener("click", (event) => {
       // console.log(event);
       event.stopPropagation();
+      mimicMiniStore[nameOf] = defaultAmountToBuy;
       console.log(dataid);
 
       fetch("https://estapi.openmarket.weniv.co.kr/products/" + dataid + "/", {
@@ -80,7 +88,9 @@ const createListCard = (data) => {
                                           ${json.name}
                                           ${json.price}원
                                           ${json.shipping_method} / ${json.shipping_fee}
-                                          <button>-</button> <button   onclick="increaseAmountToBuy()">+</button>
+                                          <button>-</button>  
+                                          ${mimicMiniStore[nameOf]}  
+                                          <button   onclick="increaseAmountToBuy('${nameOf}')">+</button>
                                           총 상품 금액  총 수량 ${json.stock}개    
                                           ${json.price + json.shipping_fee}원
                                           <button>바로 구매</button>
