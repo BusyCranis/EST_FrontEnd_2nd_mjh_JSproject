@@ -13,23 +13,33 @@ function increaseAmountToBuy(eachName) {
 }
 
 
-function setEachItemDetailPage(eachres, eachname) {
-  wrapproductlist.innerHTML = `<div   class="eachdetailpagecontents" >
-                                <img  src="${eachres.image}"></img>
-                                <div>
-                                  ${eachres.seller.name}
-                                  ${eachres.name}
-                                  ${eachres.price}원
-                                  ${eachres.shipping_method} / ${eachres.shipping_fee}
-                                  <button>-</button>  
-                                  ${mimicMiniStore[eachname]}  
-                                  <button   onclick="increaseAmountToBuy('${eachname}')">+</button>
-                                  총 상품 금액  총 수량 ${eachres.stock}개    
-                                  ${eachres.price + eachres.shipping_fee}원
-                                  <button>바로 구매</button>
-                                  <button>장바구니</button>
-                                </div>
-                              </div>`;
+function setEachItemDetailPage(eachid, eachname) {
+
+  fetch("https://estapi.openmarket.weniv.co.kr/products/" + eachid + "/", {
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json",
+    },
+  }).then((response) => response.json()).then((json) => {
+      console.log(json);
+      wrapproductlist.innerHTML = `<div   class="eachdetailpagecontents" >
+                                    <img  src="${json.image}"></img>
+                                    <div>
+                                      ${json.seller.name}
+                                      ${json.name}
+                                      ${json.price}원
+                                      ${json.shipping_method} / ${json.shipping_fee}
+                                      <button>-</button>  
+                                      ${mimicMiniStore[eachname]}  
+                                      <button   onclick="increaseAmountToBuy('${eachname}')">+</button>
+                                      총 상품 금액  총 수량 ${json.stock}개    
+                                      ${json.price + json.shipping_fee}원
+                                      <button>바로 구매</button>
+                                      <button>장바구니</button>
+                                    </div>
+                                   </div>`;
+    }).catch((error) => console.error(error));
+
 }
 
 
@@ -95,34 +105,34 @@ const createListCard = (data) => {
       mimicMiniStore[nameOf] = defaultAmountToBuy;
       console.log(dataid);
 
-      fetch("https://estapi.openmarket.weniv.co.kr/products/" + dataid + "/", {
-        method: "GET",
-        headers: {
-          "Content-Type": "application/json",
-        },
-      })
-        .then((response) => response.json())
-        .then((json) => {
-          console.log(json);
-          setEachItemDetailPage(json, nameOf);
-          // wrapproductlist.innerHTML = `<div   class="eachdetailpagecontents" >
-          //                               <img  src="${json.image}"></img>
-          //                               <div>
-          //                                 ${json.seller.name}
-          //                                 ${json.name}
-          //                                 ${json.price}원
-          //                                 ${json.shipping_method} / ${json.shipping_fee}
-          //                                 <button>-</button>  
-          //                                 ${mimicMiniStore[nameOf]}  
-          //                                 <button   onclick="increaseAmountToBuy('${nameOf}')">+</button>
-          //                                 총 상품 금액  총 수량 ${json.stock}개    
-          //                                 ${json.price + json.shipping_fee}원
-          //                                 <button>바로 구매</button>
-          //                                 <button>장바구니</button>
-          //                               </div>
-          //                              </div>`;
-        })
-        .catch((error) => console.error(error));
+      setEachItemDetailPage(dataid, nameOf);
+
+      // fetch("https://estapi.openmarket.weniv.co.kr/products/" + dataid + "/", {
+      //   method: "GET",
+      //   headers: {
+      //     "Content-Type": "application/json",
+      //   },
+      // }).then((response) => response.json()).then((json) => {
+      //     console.log(json);
+      //     wrapproductlist.innerHTML = `<div   class="eachdetailpagecontents" >
+      //                                   <img  src="${json.image}"></img>
+      //                                   <div>
+      //                                     ${json.seller.name}
+      //                                     ${json.name}
+      //                                     ${json.price}원
+      //                                     ${json.shipping_method} / ${json.shipping_fee}
+      //                                     <button>-</button>  
+      //                                     ${mimicMiniStore[nameOf]}  
+      //                                     <button   onclick="increaseAmountToBuy('${nameOf}')">+</button>
+      //                                     총 상품 금액  총 수량 ${json.stock}개    
+      //                                     ${json.price + json.shipping_fee}원
+      //                                     <button>바로 구매</button>
+      //                                     <button>장바구니</button>
+      //                                   </div>
+      //                                  </div>`;
+      //   }).catch((error) => console.error(error));
+
+
     });
   }
 };
