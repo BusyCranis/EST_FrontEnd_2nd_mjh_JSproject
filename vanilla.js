@@ -4,14 +4,6 @@ var mimicMiniStore = {};
 
 
 
-function setEachItemDetailPage() {
-
-
-}
-
-
-
-
 function increaseAmountToBuy(eachName) {
   console.log(eachName);
   console.log(mimicMiniStore);
@@ -20,6 +12,28 @@ function increaseAmountToBuy(eachName) {
   mimicMiniStore[eachName] = mimicMiniStore[eachName] + 1;
   // wrapproductlist.innerHTML = wrapproductlist.innerHTML;
 }
+
+
+function setEachItemDetailPage(eachres) {
+  wrapproductlist.innerHTML = `<div   class="eachdetailpagecontents" >
+                                <img  src="${eachres.image}"></img>
+                                <div>
+                                  ${eachres.seller.name}
+                                  ${eachres.name}
+                                  ${eachres.price}원
+                                  ${eachres.shipping_method} / ${eachres.shipping_fee}
+                                  <button>-</button>  
+                                  ${mimicMiniStore[nameOf]}  
+                                  <button   onclick="increaseAmountToBuy('${nameOf}')">+</button>
+                                  총 상품 금액  총 수량 ${eachres.stock}개    
+                                  ${eachres.price + eachres.shipping_fee}원
+                                  <button>바로 구매</button>
+                                  <button>장바구니</button>
+                                </div>
+                              </div>`;
+}
+
+
 
 
 fetch("https://estapi.openmarket.weniv.co.kr/products/", {
