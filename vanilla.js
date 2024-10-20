@@ -5,14 +5,13 @@ var mimicMiniStore = {};
 
 
 function increaseAmountToBuy(eachName, productid) {
-  console.log(eachName);
+  // console.log(eachName);
   console.log(mimicMiniStore);
   console.log(mimicMiniStore[eachName]);
   console.log(productid);
-  console.log(wrapproductlist.innerHTML);
+  // console.log(wrapproductlist.innerHTML);
   let tempName = "amountToBuy" + productid;
   mimicMiniStore[eachName] = mimicMiniStore[eachName] + 1;
-
 
 
   setEachItemDetailPage(productid, tempName);
@@ -54,15 +53,14 @@ fetch("https://estapi.openmarket.weniv.co.kr/products/", {
   headers: {
     "Content-Type": "application/json",
   },
-})
-  .then((response) => response.json())
-  .then((json) => {
-    console.log(json);
-    vanillaListArr = json.results;
+}).then((response) => response.json()).then((json) => {
+     console.log(json);
+     vanillaListArr = json.results;
 
-    prefer0Time(vanillaListArr);
-  })
-  .catch((error) => console.error(error));
+     prefer0Time(vanillaListArr);
+   }).catch((error) => console.error(error));
+
+
 
 const getList = async (list) => {
   console.log(list);
@@ -102,19 +100,16 @@ const createListCard = (data) => {
 
     let nameOf = "amountToBuy" + dataid;
     let defaultAmountToBuy = 1;
-
     let eachdataid = "product" + dataid;
 
     mimicMiniStore[eachdataid] = dataid;
 
     menuCardWrapper.addEventListener("click", (event) => {
-      // console.log(event);
       event.stopPropagation();
       mimicMiniStore[nameOf] = defaultAmountToBuy;
       console.log(dataid);
 
       setEachItemDetailPage(dataid, nameOf);
-
     });
   }
 };
