@@ -36,8 +36,8 @@ function setEachItemDetailPage(eachid, eachname) {
                                       <button>-</button>  
                                       ${mimicMiniStore[eachname]}  
                                       <button   onclick="increaseAmountToBuy('${eachname}', '${eachid}')">+</button>
-                                      총 상품 금액  총 수량 ${json.stock}개    
-                                      ${json.price + json.shipping_fee}원
+                                      총 상품 금액  총 수량 ${mimicMiniStore[eachname]}개    
+                                      ${json.price * mimicMiniStore[eachname] + json.shipping_fee}원
                                       <button>바로 구매</button>
                                       <button>장바구니</button>
                                     </div>
