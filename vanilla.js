@@ -30,6 +30,19 @@ function increaseAmountToBuy(eachName, productid) {
   setEachItemDetailPage(productid, tempName);
 }
 
+function decreaseAmountToBuy(eachName, productid) {
+  console.log(mimicMiniStore);
+  console.log(mimicMiniStore[eachName]);
+  console.log(productid);
+  // console.log(wrapproductlist.innerHTML);
+  let tempName = "amountToBuy" + productid;
+  mimicMiniStore[eachName] = mimicMiniStore[eachName] - 1;
+
+
+  setEachItemDetailPage(productid, tempName);
+}
+
+
 
 function setEachItemDetailPage(eachid, eachname) {
   fetch("https://estapi.openmarket.weniv.co.kr/products/" + eachid + "/", {
@@ -46,7 +59,7 @@ function setEachItemDetailPage(eachid, eachname) {
                                       ${json.name}
                                       ${json.price}원
                                       ${json.shipping_method} / ${json.shipping_fee}
-                                      <button>-</button>  
+                                      <button    onclick="decreaseAmountToBuy('${eachname}', '${eachid}')">-</button>  
                                       ${mimicMiniStore[eachname]}  
                                       <button   onclick="increaseAmountToBuy('${eachname}', '${eachid}')">+</button>
                                       총 상품 금액  총 수량 ${mimicMiniStore[eachname]}개    
