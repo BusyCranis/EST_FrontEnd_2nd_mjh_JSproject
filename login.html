@@ -39,19 +39,10 @@
             password: password.value,
             login_type: "BUYER",
           }),
-        })
-          .then((response) => response.json())
-          .then((json) => {
+        }).then((response) => response.json()).then((json) => {
             console.log(json);
-            // if (json.message) {
-            //   hasCheckedDuplicate = true;
-            //   accountNameBase.textContent = "멋진 아이디네요 :)";
-            // } else if (json.error) {
-            //   hasCheckedDuplicate = false;
-            //   accountNameBase.textContent = "이미 사용중인 아이디입니다.";
-            // }
-          })
-          .catch((error) => console.error(error));
+        
+        }).catch((error) => console.error(error));
       }
     </script>
   </body>

@@ -66,8 +66,7 @@
         console.log(checkAccountDup.value);
         if (checkAccountDup.value && checkAccountDup.value !== "") {
           if (checkAccountDup.value.length < 20) {
-            fetch(
-              "https://estapi.openmarket.weniv.co.kr/accounts/validate-username/",
+            fetch("https://estapi.openmarket.weniv.co.kr/accounts/validate-username/",
               {
                 method: "POST",
                 headers: {
@@ -77,9 +76,7 @@
                   username: checkAccountDup.value,
                 }),
               }
-            )
-              .then((response) => response.json())
-              .then((json) => {
+            ).then((response) => response.json()).then((json) => {
                 console.log(json);
                 if (json.message) {
                   hasCheckedDuplicate = true;
@@ -88,8 +85,7 @@
                   hasCheckedDuplicate = false;
                   accountNameBase.textContent = "이미 사용중인 아이디입니다.";
                 }
-              })
-              .catch((error) => console.error(error));
+            }).catch((error) => console.error(error));
           }
         }
       }
@@ -99,11 +95,7 @@
         if (hasCheckedDuplicate === true) {
           hasCheckedDuplicate = false;
         }
-        if (
-          checkAccountDup.value &&
-          checkAccountDup.value !== "" &&
-          checkAccountDup.value.length < 20
-        ) {
+        if (checkAccountDup.value && checkAccountDup.value !== "" && checkAccountDup.value.length < 20) {
           accountNameBase.textContent = "";
         } else if (checkAccountDup.value.length >= 20) {
           accountNameBase.textContent =
@@ -137,12 +129,7 @@
         console.log(rePWvalidMessage.textContent);
         console.log(rePWvalidShow.src);
         if (pwReInput.value == pwinput.value) {
-          if (
-            !pwinput.value ||
-            !pwReInput.value ||
-            pwinput.value === "" ||
-            pwReInput.value === ""
-          ) {
+          if (!pwinput.value || !pwReInput.value || pwinput.value === "" || pwReInput.value === "") {
             rePWvalidShow.src = "./assets/icon-check-off.svg";
           } else {
             rePWvalidShow.src = "./assets/icon-check-on.svg";
@@ -185,19 +172,9 @@
             name: userNameField.value,
             phone_number: phoneFirst.value + midphone.value + lastphone.value,
           }),
-        })
-          .then((response) => response.json())
-          .then((json) => {
+        }).then((response) => response.json()).then((json) => {
             console.log(json);
-            // if (json.message) {
-            //   hasCheckedDuplicate = true;
-            //   accountNameBase.textContent = "멋진 아이디네요 :)";
-            // } else if (json.error) {
-            //   hasCheckedDuplicate = false;
-            //   accountNameBase.textContent = "이미 사용중인 아이디입니다.";
-            // }
-          })
-          .catch((error) => console.error(error));
+        }).catch((error) => console.error(error));
       }
     </script>
   </body>

@@ -42,7 +42,7 @@ function setEachItemDetailPage(eachid, eachname) {
                                       <button>장바구니</button>
                                     </div>
                                    </div>`;
-    }).catch((error) => console.error(error));
+  }).catch((error) => console.error(error));
 }
 
 
@@ -58,7 +58,7 @@ fetch("https://estapi.openmarket.weniv.co.kr/products/", {
      vanillaListArr = json.results;
 
      prefer0Time(vanillaListArr);
-   }).catch((error) => console.error(error));
+}).catch((error) => console.error(error));
 
 
 
@@ -132,31 +132,7 @@ function prefer0Time(listarr) {
   });
 }
 
-function setListToShare() {
-  // let tempReader = new FileReader();
-  // console.log(btnvanila.files);
-  // tempReader.onload = (ef) => {
-  //   console.log(ef.target.result);
-  //   let newitemtoshare = {
-  //     id: Date.now(),
-  //     type: "rtshare",
-  //     fieldContent: ef.target.result,
-  //   };
-  //   console.log(newitemtoshare);
-  //   vanillaListArr.push(newitemtoshare);
-  //   prefer0Time(vanillaListArr);
-  // };
-  // tempReader.readAsDataURL(btnvanila.files[0]);
-}
+// function setListToShare() {
+// }
 
-// function updatevanillaitem(cutid, aidx) {
-//   console.log(updatevanila.value);
-//   let newvalueupdate = updatevanila.value;
-//   vanillaListArr[aidx].fieldContent = newvalueupdate;
-//   prefer0Time(vanillaListArr);
-// }
-// function checkpropagation(cutid) {
-//   let restArr = vanillaListArr.filter((item) => item.id !== cutid);
-//   vanillaListArr = restArr;
-//   prefer0Time(vanillaListArr);
-// }
+
