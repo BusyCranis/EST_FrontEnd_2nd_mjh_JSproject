@@ -15,7 +15,7 @@
           <div>판매회원 로그인</div>
         </div>
         <input id="accountName" type="text" /><br />
-        <input id="password" type="text" /><br />
+        <input id="password" type="password" /><br />
         <button onclick="requestLogin()">로그인</button>
       </div>
       <a href="./signup.html">회원가입</a> <a>비밀번호 찾기</a>
@@ -27,7 +27,7 @@
 
       function requestLogin() {
         console.log(accountName);
-        console.log(password);
+        // console.log(password);
 
         fetch("https://estapi.openmarket.weniv.co.kr/accounts/login/", {
           method: "POST",
