@@ -45,118 +45,81 @@
 ...중략...
 
 
-### 2.2 URL 구조(모놀리식)
-- main
-
-| App       | URL                                        | Views Function    | HTML File Name                        | Note           |
-|-----------|--------------------------------------------|-------------------|---------------------------------------|----------------|
-| main      | '/'                                        | home              | main/home.html                        | 홈화면          |
-| main      | '/about/'                                  | about             | main/about.html                       | 소개화면               |
-
-
-- accounts
-
-| App       | URL                                        | Views Function    | HTML File Name                        | Note           |
-|-----------|--------------------------------------------|-------------------|---------------------------------------|----------------|
-| accounts  | 'register/'                                | register          | accounts/register.html                |회원가입         |
-| accounts  | 'login/'                                   | login             | accounts/login.html                   |로그인           |
-| accounts  | 'logout/'                                  | logout            | accounts/logout.html                  |로그아웃         |
-| accounts  | 'profile/'                                 | profile           | accounts/profile.html                 | 비밀번호변경기능 / <br>프로필 수정/ 닉네임추가 |
-
-
-- boardapp
-
-| App       | URL                                        | Views Function    | HTML File Name                        | Note           |
-|-----------|--------------------------------------------|-------------------|---------------------------------------|----------------|
-| board     | 'board/'                                   | board             | boardapp/post_list.html               | 게시판 목록 |
-| board     | 'board/<int:pk>/'                          | post_detail       | boardapp/post_detail.html            | 게시글 상세보기 |
-| board     | 'board/write/'                             | post_write        | boardapp/post_write.html             | 게시글 작성 |
-| board     | 'board/edit/<int:pk>/'                     | post_edit         | boardapp/post_edit.html              | 게시글 수정 |
-| board     | 'board/delete/<int:pk>/'                   | post_delete       | boardapp/post_delete.html            | 게시글 삭제 |
-| board     | 'board/<int:pk>/comment/'                  | comment_create    | boardapp/comment_form.html           | 댓글 작성 |
-| board     | 'board/<int:pk>/comment/<br><int:comment_pk>/edit/' | comment_edit | boardapp/comment_form.html           | 댓글 수정 |
-| board     | 'board/<int:pk>/comment/<br><int:comment_pk>/delete/' | comment_delete | boardapp/comment_<br>confirm_delete.html| 댓글 삭제 |
-
-
-- blog
-
-
-| App       | URL                                        | Views Function    | HTML File Name                        | Note           |
-|-----------|--------------------------------------------|-------------------|---------------------------------------|----------------|
-| blog      | 'blog/'                                    | blog              | blog/blog.html                        |갤러리형 게시판 메인 화면  |
-| blog      | 'blog/<int:pk>/'                           | post              | blog/post.html                        |상세 포스트 화면    |
-| blog      | 'blog/write/'                              | write             | blog/write.html                       | 카테고리 지정, 사진업로드,<br> 게시글 조회수 반영|
-| blog      | 'blog/edit/<int:pk>/'                      | edit              | blog/edit.html                        | 게시물목록보기 |
-| blog      | 'blog/delete/<int:pk>/'                    | delete            | blog/delete.html                      | 삭제 화면      |
-| blog      | 'blog/search/'                             | search            | blog/search.html                      | 주제와 카테고리에 따라 검색,<br> 시간순에 따라 정렬|
-| blog      | 'post/<int:post_pk>/comment/'              | comment_new       | blog/comment_form.html                | 댓글 입력 폼     |
-| blog      | 'post/<int:post_pk>/comment/<br><int:parent_pk>/' | reply_new    | blog/comment_form.html                | 대댓글 폼      |
-| blog      | 'post/<int:pk>/like/'                      | like_post         | blog/post.html                        |좋아요를 누르면 blog/post로 Redirect됨|
-| blog      | 'comment/<int:pk>/update/'                 | comment_update    | blog/comment_form.html                |댓글 업데이터 경로   |
-| blog      | 'comment/<int:pk>/delete/'                 | comment_delete    | blog/comment_<br>confirm_delete.html      |댓글 삭제 폼    |
-
-### 2.4 URL 구조(마이크로식)
-
-* views의 이름과 views에 믹스인 한 것이 있으면 함께 언급하면 좋습니다.
-
-|app:accounts|HTTP Method|설명|로그인 권한 필요|작성자 권한 필요|
-|:-|:-|:-|:-:|:-:|
-|signup/|POST|회원가입|||
-|login/|POST|로그인|||
-|logout/|POST|로그아웃| ✅ ||
-|\<int:pk\>/|GET|프로필 조회| ✅ ||
-|\<int:pk\>/|PUT|프로필 수정| ✅ | ✅ |
-|\<int:pk\>/|DELETE|회원 탈퇴| ✅ | ✅ |
-|status/|GET|로그인 상태 확인|||
-|token/refresh/|POST|만료 토큰 재발급|||
-<br>  
-
-|app:blog|HTTP Method|설명|로그인 권한 필요|작성자 권한 필요|
-|:-|:-|:-|:-:|:-:|
-|list/|GET|게시판 리스트| ✅ ||
-|create/|POST|게시물 작성| ✅ ||
-<br>
-
-|app:interview|HTTP Method|설명|로그인 권한 필요|작성자 권한 필요|
-|:-|:-|:-|:-:|:-:|
-|question/|POST|면접 문제 요청| ✅ ||
-|grading/|POST|면접 문제 채점| ✅ ||
-|total/|POST|면접 점수 통계| ✅ ||
-<br>
-
-* 아래와 같이 표현할 수도 있습니다.
-
-| App       | Method        | URL                               | Views Class        | Note           |
-|-----------|---------------|-----------------------------------|------------------- |----------------|
-| blog  | GET   | '/blog/posts/'                         |   PostViewSet                 |게시글 목록 |
-| blog  | POST   | '/blog/posts/'                       |   PostViewSet                 |게시글 생성 / ChatGPT API 요청 |
-| blog  | GET   | '/blog/posts/{post_id}/'                |    PostViewSet       |게시글 상세보기 / 게시글 조회수 증가 |
-| blog  | PATCH   | '/blog/posts/{post_id}/'                  |   PostViewSet    |게시글 수정 |
-| blog  | DELETE   | '/blog/posts/{post_id}/'                   |  PostViewSet    |게시글 삭제 |
-| blog  | POST   | '/blog/posts/{post_id}/like/'                   |   PostViewSet    |게시글 좋아요 증가|
-| blog  | GET   | '/blog/posts/{post_id}/comments/'                   |   CommentViewSet    | 게시물의 댓글 목록 |
-| blog  | POST   | '/blog/posts/{post_id}/comments/'                   |   CommentViewSet    | 게시물의 댓글 생성 |
-| blog  | GET   | '/blog/posts/{post_id}/comments/{comment_id}/'       |   CommentViewSet    | 게시물의 특정 댓글 보기 |
-| blog  | PATCH   | '/blog/posts/{post_id}/comments/{comment_id}/'       |   CommentViewSet    | 게시물의 특정 댓글 수정 |
-| blog  | DELETE   | '/blog/posts/{post_id}/comments/{comment_id}/'       |   CommentViewSet    | 게시물의 특정 댓글 삭제 |
-<br>
-
-|URL|페이지 설명|GET|POST|PUT|DELETE|로그인 권한| 작성자 권한|
-|------|---|:---:|:---:|:---:|:---:|:---:|:---:|
-|/accounts/login|로그인| |✔️| | | | |
-|/accounts/logout|로그아웃| |✔️| | | | |
-|/accounts/signup|회원가입| |✔️| | | | |
-|/accounts/profile|프로필 <br> 프로필 수정 <br> 회원 탈퇴|✔️<br> <br> <br>| |✔️|<br><br>✔️|✔️ <br> ✔️ <br> ✔️|<br> ✔️ <br> ✔️
-|/accounts/token/refresh|토큰갱신| |✔️| | | | |
-|/board|게시글 목록 <br> 게시글 생성|✔️<br><br>|<br>✔️| | | <br> ✔️| |
-|/board/{postid}|게시글 상세 <br> 게시글 수정 <br> 게시글 삭제|✔️<br><br><br>| |✔️|<br><br>✔️| <br> ✔️ <br> ✔️ | <br> ✔️ <br> ✔️
-<br>
-
 ## 3. 요구사항 명세와 기능 명세
 - https://www.mindmeister.com/ 등을 사용하여 모델링 및 요구사항 명세를 시각화하면 좋습니다.
 - 이미지는 셈플 이미지입니다.
 <img src="map.png" width="100%">
 - 머메이드를 이용해 시각화 할 수 있습니다.
+
+**[구현 페이지]**
+
+- 로그인 페이지
+- 회원 가입 페이지
+- 상품 목록 페이지
+- 상품 상세 페이지
+
+**1) 로그인 페이지**
+
+- 아이디나 비밀번호가 일치하지 않거나, 아이디나 비밀번호를 입력하지 않은 채 로그인 버튼을 누르면 경고 문구가 나타납니다.
+- 입력 창 아래에 경고창이 나타나면 로그인 버튼을 눌러도 로그인 되지 않습니다.
+- 입력 창에 입력이 안된 부분이 존재한 채로 로그인 버튼을 누르면 입력되지 않은 입력 창에 focus 이벤트가 작동하고 로그인은 되지 않습니다.
+- 아이디나 비밀번호가 일치하지 않는다면, 비밀번호 입력창에 focus이벤트가 발생하고 빈칸이 됩니다.
+- 로그인이 성공할 시, 로그인하기 이전 페이지로 이동합니다.
+- 구매자 : 구매 회원 로그인 탭을 클릭하면 구매 회원으로 로그인합니다.
+- 판매자 : 판매 회원 로그인 탭을 클릭하면 판매 회원으로 로그인합니다.
+
+**2) 회원가입 페이지**
+
+- 회원가입 할 때는 모든 입력을 완료하고 동의하기 체크를 눌러야만 회원가입이 가능합니다.
+- 회원 정보 입력 후 회원가입 버튼을 누르면 로그인 페이지로 이동합니다.
+- 아이디의 중복 확인 버튼을 눌렀을 때 중복이 된다면 입력창 아래에 경고 문구가 나타납니다.
+- 구매자 : 구매 회원 가입 탭을 누르고, 모든 입력을 마친 뒤(이용약관 체크박스 포함) 가입하기 버튼을 누르면 구매자로 회원가입이 됩니다.
+
+[[클릭] 회원가입 유효성 검사 오류 메시지 정리 ](https://www.notion.so/21a97ac554a748a9878fe4f8b696fe36?pvs=21)
+
+**3) 상품 목록 페이지**
+
+- 목록에서 상품을 클릭하면 상품 상세 페이지로 이동합니다.
+- 상품에는 상품 판매자, 상품명, 가격이 보여집니다.
+
+**4) 상품 상세 페이지**
+
+- productId에 해당하는 상품을 불러오고, 해당 상품 정보를 보여줍니다.
+- `+` 버튼과 `-` 버튼을 사용해야만 수량 변경이 가능합니다.
+- 수량을 변경할 때 현재 상품의 재고 수량을 초과하면 `+` 버튼이 비활성화됩니다.
+- 선택된 옵션에 맞춰서 가격을 계산하고, 총 가격이 나타나야 합니다.
+
+**5) 페이지 상단 글로벌 네비게이션 영역(GNB)**
+
+- 상단 검색창은 UI로만 존재합니다.
+- 구매 회원, 비로그인 회원의 페이지 상단 바에는 검색창과 장바구니 버튼만 존재합니다.
+- 로그인 유저일 경우 장바구니 버튼은 UI로만 존재합니다.
+- 판매회원의 페이지 상위 버튼에는 마이페이지 버튼과 판매자 센터 버튼만 있어야 하며 두 버튼은 UI로만 존재합니다.(장바구니 버튼은 사라집니다.)
+
+**6) 로그인을 요청하는 모달**
+
+- 비로그인 사용자는 장바구니, 바로구매를 클릭했을 시 로그인을 해달라는 모달 창이 떠야합니다.
+
+**7) 마이페이지** 
+
+- 상단 네비게이션에 있는 마이페이지를 클릭하면, 마이페이지,로그아웃 기능이 있는 드롭다운 박스가 생깁니다.
+- 드롭다운 박스에 있는 마이페이지는 UI로만 존재합니다.
+- 드롭다운 박스에 있는 로그아웃을 클릭했을 시, 로그아웃 됩니다.
+
+![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/e8f11927-b70c-4524-9227-a3efac08e7aa/4b93f59c-0472-409c-8587-9a7035dc91ba/Untitled.png)
+
+<aside>
+💡 1. 마이페이지 아이콘을 `클릭`했을 때 
+- 마이페이지 아이콘이 메인컬러로 변경됩니다.
+- 드롭다운 UI가 나타나며 백그라운드를 클릭하면 UI가 사라집니다.
+
+</aside>
+
+**8) 푸터(Footer)**
+
+- 피그마 그대로 구현하시면 됩니다.
+
+
   
 ```mermaid
     sequenceDiagram
