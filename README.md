@@ -5,9 +5,6 @@
  -->
 # 오픈마켓 서비스
 
-## 배포 url
-- https://effortless-squirrel-1a74bc.netlify.app
-
 ## 1. 목표와 개발 과정
 
 ### 1.1 목표
@@ -30,6 +27,9 @@
 ## 2. 개발 환경 및 배포 URL
 ### 2.1 개발 환경
 - 바닐라 html, javascript
+
+### 2.2 배포 url
+- https://effortless-squirrel-1a74bc.netlify.app
 
 
 ## 3. 요구사항 명세와 기능 명세
