@@ -109,12 +109,10 @@
         console.log(pwinput.value.length);
         if (pwinput.value && pwinput.value !== "") {
           if (pwinput.value.length < 8) {
-            // pwValidShow.setAttribute("src", "./assets/icon-check-off.svg");
             pwValidShow.src = "./assets/icon-check-off.svg";
             pwValidMessage.textContent =
               "8자 이상 영문 소문자, 숫자를 사용하세요.";
           } else if (pwinput.value.length >= 8) {
-            // pwValidShow.setAttribute("src", "./assets/icon-check-on.svg");
             pwValidShow.src = "./assets/icon-check-on.svg";
             pwValidMessage.textContent = "";
           }
@@ -142,8 +140,6 @@
       }
 
       function requestSignup() {
-        console.log(typeof phoneFirst.value);
-
         if (!hasCheckedDuplicate) {
           return;
         }

@@ -4,8 +4,21 @@ var mimicMiniStore = {};
 
 
 
+fetch("https://estapi.openmarket.weniv.co.kr/products/", {
+  method: "GET",
+  headers: {
+    "Content-Type": "application/json",
+  },
+}).then((response) => response.json()).then((json) => {
+  console.log(json);
+  vanillaListArr = json.results;
+
+  showProductListElement(vanillaListArr);
+}).catch((error) => console.error(error));
+
+
+
 function increaseAmountToBuy(eachName, productid) {
-  // console.log(eachName);
   console.log(mimicMiniStore);
   console.log(mimicMiniStore[eachName]);
   console.log(productid);
@@ -47,31 +60,9 @@ function setEachItemDetailPage(eachid, eachname) {
 
 
 
-
-fetch("https://estapi.openmarket.weniv.co.kr/products/", {
-  method: "GET",
-  headers: {
-    "Content-Type": "application/json",
-  },
-}).then((response) => response.json()).then((json) => {
-     console.log(json);
-     vanillaListArr = json.results;
-
-     prefer0Time(vanillaListArr);
-}).catch((error) => console.error(error));
-
-
-
-const getList = async (list) => {
-  console.log(list);
-  createListCard(list);
-};
-
 const createListCard = (data) => {
   console.log(data);
-
   for (let i = 0; i < data.length; i++) {
-    // let preindex = i;
     let dataid = data[i].id;
 
     const menuCardImgBox = document.createElement("img");
@@ -114,25 +105,22 @@ const createListCard = (data) => {
   }
 };
 
-async function openList(arr0) {
-  await getList(arr0);
-}
 
-function preExecute(callback) {
+
+function cleanOldListElement(callback) {
   wrapproductlist.innerHTML = "";
 
   console.log(wrapproductlist);
   callback();
 }
 
-function prefer0Time(listarr) {
+function showProductListElement(listarr) {
   console.log(wrapproductlist);
-  preExecute(() => {
-    openList(listarr);
+  cleanOldListElement(() => {
+    createListCard(listarr);
   });
 }
 
-// function setListToShare() {
-// }
+
 
 
