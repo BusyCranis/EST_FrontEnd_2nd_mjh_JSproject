@@ -133,8 +133,11 @@
 ### 4.1 프로젝트 구조
 <!-- - EST_FrontEnd_2nd_mjh_JSproject -->
 📦EST_FrontEnd_2nd_mjh_JSproject  
- ┣ 📂accounts  
- ┃ ┣ 📂migrations  
+ ┣ index.html  
+ ┣ vanilla.js
+ ┣ signup.html
+ ┣ login.html
+ <!-- ┃ ┣ 📂migrations  
  ┃ ┣ 📂__pycache__  
  ┃ ┣ 📜admin.py  
  ┃ ┣ 📜apps.py  
@@ -235,7 +238,7 @@
  ┣ 📜db.sqlite3  
  ┣ 📜manage.py  
  ┣ 📜README.md  
- ┗ 📜requirements.txt  
+ ┗ 📜requirements.txt   -->
 
 
 
