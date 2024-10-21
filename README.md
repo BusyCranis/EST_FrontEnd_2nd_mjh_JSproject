@@ -1,19 +1,8 @@
-- 해당 repo는 sample repo입니다. 실제 사용되고 있는 repo가 아닙니다.
-- 해당 repo 내용으로 작성한 [sample repo](https://github.com/paullabkorea/github_blog) 링크입니다. 이 프로젝트는 실제 위니브에서 진행중인 프로젝트의 origin입니다. 프로젝트는 다른 repo에서 진행중이지만 참고하실만 합니다.
-- 블러 처리되어 있는 이미지가 일부 있을 수 있습니다.
-- 모든 템플릿이 동일한 템플릿이 되지 않도록 적절한 수정이 필요합니다.
-- GitHub Project나 GitHub Wiki를 사용하시는 것도 좋습니다.
-- 스웨거와 같은 서비스를 이용할 경우 캡쳐된 이미지가 있어야 합니다.
-- Notion으로 WBS 등을 작성하였으면 노션 링크가 아니라 내용이나 캡쳐 이미지가 들어가도록 해주세요.(URL 이동 최소화)
-- ChatGPT에게 머메이드로 요구하세요. 대부분 빠르게 만족할만한 퀄리티를 얻을 수 있습니다.
 <!-- 
 제외할것
 개발 일정, 배포 url, 팀 구성
 역할 분담, 와이어프레임, 데이터베이스모델링, 아키텍처
-
-
  -->
-  
 # 지역기반 스터디 그룹 커뮤니티 서비스
 
 ## 1. 목표와 기능
@@ -133,10 +122,10 @@
 ### 4.1 프로젝트 구조
 <!-- - EST_FrontEnd_2nd_mjh_JSproject -->
 📦EST_FrontEnd_2nd_mjh_JSproject  
- ┃ ┣ index.html  
- ┃ ┣ vanilla.js
- ┃ ┣ signup.html
- ┃ ┗  login.html
+┣ index.html  
+┣ vanilla.js
+┣ signup.html
+┗  login.html
  <!-- ┃ ┣ 📂migrations  
  ┃ ┣ 📂__pycache__  
  ┃ ┣ 📜admin.py  
