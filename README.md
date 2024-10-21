@@ -6,7 +6,13 @@
 - 스웨거와 같은 서비스를 이용할 경우 캡쳐된 이미지가 있어야 합니다.
 - Notion으로 WBS 등을 작성하였으면 노션 링크가 아니라 내용이나 캡쳐 이미지가 들어가도록 해주세요.(URL 이동 최소화)
 - ChatGPT에게 머메이드로 요구하세요. 대부분 빠르게 만족할만한 퀄리티를 얻을 수 있습니다.
+<!-- 
+제외할것
+개발 일정, 배포 url, 팀 구성
+역할 분담, 와이어프레임, 데이터베이스모델링, 아키텍처
 
+
+ -->
   
 # 지역기반 스터디 그룹 커뮤니티 서비스
 
@@ -29,20 +35,6 @@
 - 타 플랫폼에서도 활용할 수 있는 API Set 제공
 - 각 언어별 로그인 없이 실습이 바로 가능한 환경(google colab의 경우 학생들 이름으로 가입되어 있으면 작동하지 않음)
 
-### 1.3 팀 구성
-- 실제 사진을 업로드 하시길 권합니다.
-<table>
-	<tr>
-		<th>이호준</th>
-		<th>이호준</th>
-		<th>이호준</th>
-	</tr>
- 	<tr>
-		<td><img src="my.jpg" width="100%"></td>
-		<td><img src="my.jpg" width="100%"></td>
-		<td><img src="my.jpg" width="100%"></td>
-	</tr>
-</table>
 
 ## 2. 개발 환경 및 배포 URL
 ### 2.1 개발 환경
@@ -51,15 +43,9 @@
 - 서비스 배포 환경
   - Amazon Lightsail
 ...중략...
-### 2.2 배포 URL
-- https://www.studyin.co.kr/
-- 테스트용 계정
-  ```
-  id : test@test.test
-  pw : test11!!
-  ```
 
-### 2.3 URL 구조(모놀리식)
+
+### 2.2 URL 구조(모놀리식)
 - main
 
 | App       | URL                                        | Views Function    | HTML File Name                        | Note           |
@@ -297,233 +283,7 @@
  ┣ 📜README.md  
  ┗ 📜requirements.txt  
 
-### 4.1 개발 일정(WBS)
-* 아래 일정표는 머메이드로 작성했습니다.
-```mermaid
-gantt
-    title tutorial django
-    dateFormat YY-MM-DD
-    section 기획
-        글조회(R) :2023-10-26, 1d
-        글생성/수정/삭제(CUD) :2023-10-28, 1d
-        로그인 기능 :2023-10-31, 1d
-        검색 기능 :2023-10-31, 1d
-        상세뷰 추가 구성 :2023-11-4, 1d
-    section 디자인
-        리디자인 :2023-11-6, 1d
-    section FE
-        메인    :2023-10-27, 1d
-        글조회    :2023-10-27, 1d
-        글등록    :2023-10-29, 2d
-        글수정    :2023-10-29, 2d
-        글삭제    :2023-10-29, 2d
-        글검색    :2023-10-30, 1d
-        로그인/로그아웃 :2023-10-31, 1d
-        회원가입 페이지 :2023-11-1, 1d
-        인증 접근 권한 :2023-10-31, 3d
-        유저 추가 :2023-11-2, 1d
-        프로필 페이지 :2023-11-5, 1d
-        이미지, 조회수, 태그 추가 :2023-11-6, 1d
-        댓글 추가 :2023-11-6, 1d
-        리디자인 적용 :2023-11-7, 1d
-    section BE
-        메인    :2023-10-27, 1d
-        글조회    :2023-10-27, 1d
-        글등록    :2023-10-29, 2d
-        글수정    :2023-10-29, 2d
-        글삭제    :2023-10-29, 2d
-        글검색    :2023-10-30, 1d
-        로그인/로그아웃 :2023-10-31, 1d
-        회원가입 페이지 :2023-11-1, 1d
-        인증 접근 권한 :2023-10-31, 3d
-        이미지, 조회수, 태그 :2023-11-5, 2d
-        댓글 :2023-11-5, 2d
-```
 
-* 아래 WBS는 엑셀을 이용했습니다. 양식은 [다운로드](./WBS_sample.xlsx) 받아 사용하세요. (출처 : https://techcommunity.microsoft.com/gxcuf89792/attachments/gxcuf89792/ExcelGeneral/204594/1/WBS_sample.xlsx)
-<img src="wbs_xlsx.png" width="80%">
-
-* 좀 더 가벼운 프로젝트는 아래 일정표를 사용하세요.
-* 아래 일정표는 [habitmaker.co.kr](https://habitmaker.co.kr) 에서 작성되었습니다.
-* 관련된 스택 표시는 [dev.habitmaker.co.kr](https://dev.habitmaker.co.kr) 에서 작성되었습니다.
-<img src="habit.jpg" width="50%">
-<img src="blob.png" width="50%">
-
-## 5. 역할 분담
-
-- 팀장 : 이호준
-- FE : 홍길동
-- FE : 홍길동
-- BE : 홍길동
-- BE : 홍길동
-- 디자인 : 홍길동
-
-## 6. 와이어프레임 / UI / BM
-
-### 6.1 와이어프레임
-- 아래 페이지별 상세 설명, 더 큰 이미지로 하나하나씩 설명 필요
-<img src="ui.png" width="60%">
-
-- 와이어 프레임은 디자인을 할 수 있다면 '피그마'를, 디자인을 할 수 없다면 '카카오 오븐'으로 쉽게 만들 수 있습니다.
-
-### 6.2 화면 설계
-- 화면은 gif파일로 업로드해주세요.
- 
-<table>
-    <tbody>
-        <tr>
-            <td>메인</td>
-            <td>로그인</td>
-        </tr>
-        <tr>
-            <td>
-		<img src="ui1.png" width="100%">
-            </td>
-            <td>
-                <img src="ui2.png" width="100%">
-            </td>
-        </tr>
-        <tr>
-            <td>회원가입</td>
-            <td>정보수정</td>
-        </tr>
-        <tr>
-            <td>
-                <img src="ui3.png" width="100%">
-            </td>
-            <td>
-                <img src="ui3.png" width="100%">
-            </td>
-        </tr>
-        <tr>
-            <td>검색</td>
-            <td>번역</td>
-        </tr>
-        <tr>
-            <td>
-                <img src="ui3.png" width="100%">
-            </td>
-            <td>
-                <img src="ui3.png" width="100%">
-            </td>
-        </tr>
-        <tr>
-            <td>선택삭제</td>
-            <td>글쓰기</td>
-        </tr>
-        <tr>
-            <td>
-	        <img src="ui3.png" width="100%">
-            </td>
-            <td>
-                <img src="ui3.png" width="100%">
-            </td>
-        </tr>
-        <tr>
-            <td>글 상세보기</td>
-            <td>댓글</td>
-        </tr>
-        <tr>
-            <td>
-                <img src="ui3.png" width="100%">
-            </td>
-            <td>
-                <img src="ui3.png" width="100%">
-            </td>
-        </tr>
-    </tbody>
-</table>
-
-
-## 7. 데이터베이스 모델링(ERD)
-
-* 아래 ERD는 머메이드를 사용했습니다.
-```mermaid
-erDiagram
-    user ||--o{ post : write
-    user {
-      integer id PK
-      varchar username
-      varchar password
-      image profile_image
-      datetime created_at
-      varchar ip_address
-      datetime last_login
-    }
-    post }|--|{ tag : contains
-    post ||--o| category : has
-    post {
-      integer id PK
-      varchar title
-      text content
-      file file_upload
-      image image_upload
-      datetime created_at
-      datetime updated_at
-      varchar writer
-      integer user_id FK
-      integer hits
-      integer tags FK
-      varchar category FK
-    }
-    post ||--o{ comment : contains
-    comment ||--o{ comment : contains
-    comment {
-      integer id PK
-      integer parent FK
-      text comment
-      comment comment_reply FK
-      datetime created_at
-      datetime updated_at
-    }
-    
-    tag {
-      integer id PK
-      varchar name
-    }
-    
-    
-    category {
-      integer id PK
-      varchar name
-    }
-```
-
-* 아래 ERD는 [ERDCloud](https://www.erdcloud.com/)를 사용했습니다.
-<img src="erd.png" width="60%">
-
-* https://dbdiagram.io/home도 많이 사용합니다.
-
-## 8. Architecture
-
-* 아래 Architecture 설계도는 ChatGPT에게 아키텍처를 설명하고 mermaid로 그려달라 요청한 것입니다.
-```mermaid
-graph TD;
-    CI[GitHub CI/CD] -->|Deploys| LS[AWS Lightsail];
-    A[Django Application] -->|Uses| DRF[Django REST Framework];
-    A -->|Real-time communication| C[Django Channels];
-    C -->|Messaging backend| R[Redis];
-    A -->|Connects to| DB[postgresql];
-    A -->|Static & Media Files| S3[AWS S3];
-    FE[Frontend] -->|Deployed on| LS;
-    LS -->|Hosts| A;
-    LS -->|Hosts| FE;
-
-    classDef framework fill:#f9f,stroke:#333,stroke-width:2px;
-    classDef aws fill:#ff9,stroke:#f66,stroke-width:2px,stroke-dasharray: 5, 5;
-    classDef ci fill:#9cf,stroke:#33f,stroke-width:2px;
-    
-    class A,DRF,C,DB framework;
-    class LS,S3 aws;
-    class CI ci;
-
-```
-
-* 아래 Architecture 설계도는 PPT를 사용했습니다.
-  
-![image](./architecture.png)
-
-- PPT로 간단하게 작성하였으나, 아키텍쳐가 커지거나, 상세한 내용이 필요할 경우 [AWS architecture Tool](https://online.visual-paradigm.com/ko/diagrams/features/aws-architecture-diagram-tool/)을 사용하기도 합니다.
 
 ## 9. 메인 기능
 - 끓는 너의 얼음과 꽃 뭇 더운지라 그들에게 봄바람이다. 피가 청춘을 기관과 같이, 무엇을 그들은 피고 무엇을 때문이다. 이는 무엇을 인간이 철환하였는가? 과실이 풀이 거친 인간은 그러므로 그들의 힘차게 이것은 작고 것이다. 가치를 풀밭에 있을 꾸며 보이는 사막이다. 꾸며 낙원을 인도하겠다는 무엇이 인생에 대중을 인류의 것이다. 이상, 피가 이상의 그와 풀이 품었기 가슴이 같은 아니한 보라. 열매를 그들의 가는 뼈 그들은 밝은 힘차게 위하여서. 인생에 영락과 청춘의 광야에서 천하를 무엇을 고동을 쓸쓸하랴?
