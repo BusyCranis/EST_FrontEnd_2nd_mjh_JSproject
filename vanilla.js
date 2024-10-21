@@ -19,7 +19,6 @@ fetch("https://estapi.openmarket.weniv.co.kr/products/", {
 
 
 function increaseAmountToBuy(eachName, productid) {
-  // console.log(mimicMiniStore);
   console.log(mimicMiniStore[eachName]);
   console.log(productid);
   // console.log(wrapproductlist.innerHTML);
@@ -31,7 +30,6 @@ function increaseAmountToBuy(eachName, productid) {
 }
 
 function decreaseAmountToBuy(eachName, productid) {
-  // console.log(mimicMiniStore);
   console.log(mimicMiniStore[eachName]);
   console.log(productid);
   // console.log(wrapproductlist.innerHTML);
