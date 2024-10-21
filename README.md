@@ -136,7 +136,7 @@
  ┣ index.html  
  ┣ vanilla.js
  ┣ signup.html
- ┣ login.html
+ ┗  login.html
  <!-- ┃ ┣ 📂migrations  
  ┃ ┣ 📂__pycache__  
  ┃ ┣ 📜admin.py  
