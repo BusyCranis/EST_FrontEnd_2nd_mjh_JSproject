@@ -52,22 +52,24 @@ function setEachItemDetailPage(eachid, eachname) {
     },
   }).then((response) => response.json()).then((json) => {
       console.log(json);
-      wrapproductlist.innerHTML = `<div   class="eachdetailpagecontents" >
-                                    <img  src="${json.image}"></img>
-                                    <div>
-                                      ${json.seller.name}
-                                      ${json.name}
-                                      ${json.price}원
-                                      ${json.shipping_method} / ${json.shipping_fee}
-                                      <button    onclick="decreaseAmountToBuy('${eachname}', '${eachid}')">-</button>  
-                                      ${mimicMiniStore[eachname]}  
-                                      <button   onclick="increaseAmountToBuy('${eachname}', '${eachid}')">+</button>
-                                      총 상품 금액  총 수량 ${mimicMiniStore[eachname]}개    
-                                      ${json.price * mimicMiniStore[eachname] + json.shipping_fee}원
-                                      <button>바로 구매</button>
-                                      <button>장바구니</button>
-                                    </div>
-                                   </div>`;
+      wrapproductlist.innerHTML = `
+        <div   class="eachdetailpagecontents" >
+          <img  src="${json.image}"></img>
+          <div>
+            ${json.seller.name}
+            ${json.name}
+            ${json.price}원
+            ${json.shipping_method} / ${json.shipping_fee}
+            <button    onclick="decreaseAmountToBuy('${eachname}', '${eachid}')">-</button>  
+            ${mimicMiniStore[eachname]}  
+            <button   onclick="increaseAmountToBuy('${eachname}', '${eachid}')">+</button>
+            총 상품 금액  총 수량 ${mimicMiniStore[eachname]}개    
+            ${json.price * mimicMiniStore[eachname] + json.shipping_fee}원
+            <button>바로 구매</button>
+            <button>장바구니</button>
+          </div>
+        </div>
+      `;
   }).catch((error) => console.error(error));
 }
 
