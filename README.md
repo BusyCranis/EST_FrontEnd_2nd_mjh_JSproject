@@ -32,6 +32,10 @@
 ### 2.2 배포 url
 - https://effortless-squirrel-1a74bc.netlify.app
 
+### 2.3 API 명세
+- https://www.notion.so/oreumi/API-0f5ba2857d5f488382ff88855603d915#8405059ab4e9464fac0c12c0e819c457
+
+
 
 ## 3. 요구사항 명세와 기능 명세
 **[구현 페이지]**
