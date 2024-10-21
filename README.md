@@ -38,19 +38,10 @@
 
 ## 2. 개발 환경 및 배포 URL
 ### 2.1 개발 환경
-- Web Framework
-  - Django 3.x (Python 3.8)
-- 서비스 배포 환경
-  - Amazon Lightsail
-...중략...
+- 바닐라 html, javascript
 
 
 ## 3. 요구사항 명세와 기능 명세
-- https://www.mindmeister.com/ 등을 사용하여 모델링 및 요구사항 명세를 시각화하면 좋습니다.
-- 이미지는 셈플 이미지입니다.
-<img src="map.png" width="100%">
-- 머메이드를 이용해 시각화 할 수 있습니다.
-
 **[구현 페이지]**
 
 - 로그인 페이지
@@ -121,7 +112,7 @@
 
 
   
-```mermaid
+<!-- ```mermaid
     sequenceDiagram
     actor A as client
     participant B as Web
@@ -136,7 +127,7 @@
     C->>+B: False
     B->>+A: 로그인 실패
     end
-```
+``` -->
 
 ## 4. 프로젝트 구조와 개발 일정
 ### 4.1 프로젝트 구조
