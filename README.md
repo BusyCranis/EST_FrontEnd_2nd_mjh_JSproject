@@ -133,10 +133,10 @@
 ### 4.1 프로젝트 구조
 <!-- - EST_FrontEnd_2nd_mjh_JSproject -->
 📦EST_FrontEnd_2nd_mjh_JSproject  
- ┣ index.html  
- ┣ vanilla.js
- ┣ signup.html
- ┗  login.html
+ ┃ ┣ index.html  
+ ┃ ┣ vanilla.js
+ ┃ ┣ signup.html
+ ┃ ┗  login.html
  <!-- ┃ ┣ 📂migrations  
  ┃ ┣ 📂__pycache__  
  ┃ ┣ 📜admin.py  
